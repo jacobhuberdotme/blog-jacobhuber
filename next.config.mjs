@@ -1,8 +1,17 @@
 import createMDX from '@next/mdx';
 
-/** @type {import('next').NextConfig} */
 const nextConfig = {
-  pageExtensions: ['js', 'jsx', 'md', 'mdx', 'ts', 'tsx'],
+  pageExtensions: ['js', 'jsx', 'ts', 'tsx', 'md', 'mdx'],
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'ipfs.loopring.io',
+        port: '',
+        pathname: '/ipfs/**',
+      },
+    ],
+  },
 };
 
 const withMDX = createMDX({

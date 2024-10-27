@@ -1,4 +1,11 @@
-// src/app/about/page.tsx
+import { generatePageMetadata } from '@/utils/metadata';
+
+export const metadata = generatePageMetadata({
+  title: 'About Me - Jacob Huber',
+  description: 'Learn more about Jacob Huber.',
+  image: '',
+});
+
 export default function AboutPage() {
   return (
     <main>

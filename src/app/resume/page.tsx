@@ -1,4 +1,11 @@
-// src/app/resume/page.tsx
+import { generatePageMetadata } from '@/utils/metadata';
+
+export const metadata = generatePageMetadata({
+  title: 'My Resume - Jacob Huber',
+  description: 'Check out my professional resume.',
+  image: '/',
+});
+
 export default function ResumePage() {
   return (
     <main>
