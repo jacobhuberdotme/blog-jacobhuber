@@ -4,10 +4,9 @@ import { notFound } from 'next/navigation';
 import { Metadata } from 'next';
 import matter from 'gray-matter';
 import { generatePageMetadata } from '@/utils/metadata';
-import Image from 'next/image';
-import { Separator } from "@/components/ui/separator";
 import { serialize } from 'next-mdx-remote/serialize';
-import MdxContentRenderer from '@/components/mdx-content-renderer'; // Import the client-side renderer
+import MdxContentRenderer from '@/components/mdx-content-renderer';
+import BlogPostLayout from '@/components/blog-post-layout';
 
 interface PageProps {
   params: { slug: string };
@@ -18,9 +17,8 @@ async function getMdxContentAndMetadata(slug: string) {
   try {
     const filePath = path.join(process.cwd(), 'src', 'content', 'blog', `${slug}.mdx`);
     const fileContent = fs.readFileSync(filePath, 'utf8');
-    const { content, data } = matter(fileContent); // Parse the content and metadata
+    const { content, data } = matter(fileContent);
 
-    // Serialize the MDX content for client-side rendering
     const mdxSource = await serialize(content);
 
     return { content: mdxSource, metadata: data };
@@ -32,7 +30,7 @@ async function getMdxContentAndMetadata(slug: string) {
 // Generate dynamic metadata using helper
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const mdxContent = await getMdxContentAndMetadata(params.slug);
-  
+
   if (!mdxContent) {
     return generatePageMetadata({
       title: 'Not Found',
@@ -60,24 +58,17 @@ export default async function Page({ params }: PageProps) {
     notFound();
   }
 
-  const { title, date, image } = mdxContent.metadata;
-  const content = mdxContent.content; // Access serialized MDX content here
+  const { title, date, image, description } = mdxContent.metadata;
+  const content = mdxContent.content;
 
   return (
-    <article className="container mx-auto p-4">
-      {image && (
-        <Image
-          src={image}
-          alt={title || 'Post Image'}
-          width={1200}
-          height={630}
-          className="w-full h-72 object-cover rounded-md mb-6"
-        />
-      )}
-      <h1 className="text-4xl font-bold mb-2">{title || 'Untitled'}</h1>
-      {date && <p className="text-gray-500 mb-6">{date}</p>}
-      <Separator className="mb-6" />
+    <BlogPostLayout
+      title={title || 'Untitled'}
+      date={date}
+      image={image}
+      description={description}
+    >
       <MdxContentRenderer source={content} />
-    </article>
+    </BlogPostLayout>
   );
 }
