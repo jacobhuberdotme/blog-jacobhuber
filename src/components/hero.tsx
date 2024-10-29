@@ -24,8 +24,8 @@ export default function HeroSection() {
             <Link href="/blog" className="px-6 py-3 bg-primary text-primary-foreground rounded-lg hover:bg-primary-foreground hover:text-primary transition-all">
               Visit Blog
             </Link>
-            <Link href="/about" className="px-6 py-3 bg-secondary text-secondary-foreground rounded-lg hover:bg-secondary-foreground hover:text-secondary transition-all">
-              About Me
+            <Link href="/projects" className="px-6 py-3 bg-secondary text-secondary-foreground rounded-lg hover:bg-secondary-foreground hover:text-secondary transition-all">
+              My Projects
             </Link>
           </div>
         </div>

@@ -9,6 +9,7 @@ export default function Footer() {
   const links = [
     { href: "/", label: "Home" },
     { href: "/blog", label: "Blog" },
+    { href: "/projects", label: "Projects" },
     { href: "/about", label: "About" },
     { href: "/resume", label: "Resume" },
   ];
@@ -32,19 +33,19 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="py-8 lg:py-16 bg-muted text-muted-foreground">
-      <div className="container max-w-4xl mx-auto flex justify-between items-start flex-wrap gap-10 mb-6 xl:mb-10 px-4">
+    <footer className="py-4 lg:py-8 bg-muted text-muted-foreground mt-16">
+      <div className="container max-w-4xl mx-auto flex flex-col lg:flex-row justify-between items-start gap-4 lg:gap-10 px-4">
         {/* Logo / Copyright */}
-        <div>
+        <div className="text-center lg:text-left mb-3 lg:mb-0">
           <p className="text-sm md:text-base">
             © {new Date().getFullYear()} Jacob Huber Endeavors, LLC.
           </p>
         </div>
 
         {/* Navigation Links */}
-        <ul className="flex space-x-6 text-sm md:text-base max-md:w-full">
+        <ul className="flex flex-wrap justify-center lg:justify-start gap-4 lg:gap-6 text-sm md:text-base">
           {links.map((link) => (
-            <li key={link.href} className="mb-3.5">
+            <li key={link.href}>
               <Link
                 href={link.href}
                 className={clsx(
@@ -59,9 +60,9 @@ export default function Footer() {
         </ul>
       </div>
 
-      <div className="container max-w-4xl mx-auto text-sm flex max-lg:flex-col gap-10 justify-between px-4">
+      <div className="container max-w-4xl mx-auto flex flex-col md:flex-row justify-between text-sm gap-4 md:gap-10 px-4 mt-4">
         {/* Footer Information */}
-        <div className="flex flex-col max-md:gap-5 font-light">
+        <div className="text-left font-light">
           <p>
             For more details, please see{" "}
             <Link
@@ -77,7 +78,7 @@ export default function Footer() {
         </div>
 
         {/* Social Icons and Theme Toggle */}
-        <div className="flex items-center space-x-6">
+        <div className="flex items-center justify-center md:justify-end w-full md:w-auto gap-6 mt-4 md:mt-0">
           {socialLinks.map(({ href, icon, label }) => (
             <a
               key={label}
@@ -90,7 +91,9 @@ export default function Footer() {
               <FontAwesomeIcon icon={icon} className="w-5 h-5" />
             </a>
           ))}
-          <ThemeToggle />
+          <div className="ml-auto md:ml-0">
+            <ThemeToggle />
+          </div>
         </div>
       </div>
     </footer>

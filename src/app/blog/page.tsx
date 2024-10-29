@@ -34,7 +34,7 @@ export default function BlogPage() {
     const postsDirectory = path.join(process.cwd(), 'src', 'content', 'blog');
     const filenames = fs.readdirSync(postsDirectory);
 
-    return filenames.map((filename) => {
+    const posts = filenames.map((filename) => {
       const filePath = path.join(postsDirectory, filename);
       const fileContent = fs.readFileSync(filePath, 'utf8');
       const { data } = matter(fileContent);
@@ -47,6 +47,11 @@ export default function BlogPage() {
         image: data.image || '/default-image.jpg',
       };
     });
+
+    // Sort posts by date in descending order
+    posts.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+
+    return posts;
   };
 
   const posts = getPosts();

@@ -25,6 +25,13 @@ export function NavTop() {
               </Link>
             </NavigationMenuItem>
             <NavigationMenuItem>
+              <Link href="/projects" legacyBehavior passHref>
+                <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                  Projects
+                </NavigationMenuLink>
+              </Link>
+            </NavigationMenuItem>
+            <NavigationMenuItem>
               <Link href="/resume" legacyBehavior passHref>
                 <NavigationMenuLink className={navigationMenuTriggerStyle()}>
                   Resume

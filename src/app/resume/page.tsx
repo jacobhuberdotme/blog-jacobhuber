@@ -8,7 +8,7 @@ export async function generateMetadata() {
   return generatePageMetadata({
     title: "Jacob Huber - Resume",
     description: "Explore Jacob Huber's professional experience, skills, and education.",
-    image: "",
+    image: "./me.jpeg",
   });
 }
 

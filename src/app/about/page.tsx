@@ -6,7 +6,7 @@ export async function generateMetadata() {
   return generatePageMetadata({
     title: "Jacob Huber - About Me",
     description: "Get to know Jacob Huber, his background, interests, and passions.",
-    image: "",
+    image: "./me.jpeg",
   });
 }
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
