@@ -1,3 +1,5 @@
+// src/mdx-components.tsx
+import { CustomTable, TableRow, TableCell } from '@/components/custom-table';
 import type { MDXComponents } from 'mdx/types';
 import Image, { ImageProps } from 'next/image';
 
@@ -44,6 +46,9 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
         alt={props.alt || 'MDX image'}
       />
     ),
+    CustomTable,
+    TableRow,
+    TableCell,
     ...components,
   };
 }

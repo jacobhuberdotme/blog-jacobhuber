@@ -5,6 +5,8 @@ description: "A guide to selecting the right API style for your project by compa
 image: "/choosing-rest-graphql-grpc.png"
 ---
 
+import { CustomTable, TableRow, TableCell } from "@/components/custom-table";
+
 Selecting the right API type is a crucial decision in software development that impacts the performance, flexibility, and scalability of your project. REST, GraphQL, and gRPC each offer unique strengths, and choosing between them depends on your specific requirements. This post compares these API types, covering their advantages, use cases, and when to consider each one.
 
 ---
@@ -75,19 +77,48 @@ gRPC shines in microservices architectures, real-time systems, and performance-i
 
 ---
 
-## Comparison Summary
+# Comparison Summary
 
 Here's a quick comparison to help determine the best fit:
 
-| Feature                | REST               | GraphQL                         | gRPC                   |
-| ---------------------- | ------------------ | ------------------------------- | ---------------------- |
-| **Protocol**           | HTTP/1.1           | HTTP                            | HTTP/2                 |
-| **Data Format**        | JSON (commonly)    | JSON                            | Protobuf               |
-| **Endpoint Structure** | Multiple endpoints | Single endpoint                 | Multiple endpoints     |
-| **Data Fetching**      | Defined by server  | Defined by client               | Defined by server      |
-| **Best For**           | CRUD, web apps     | Complex querying, content-heavy | Real-time, low-latency |
-
----
+<CustomTable>
+  <TableRow>
+    <TableCell firstColumn>Feature</TableCell>
+    <TableCell>REST</TableCell>
+    <TableCell>GraphQL</TableCell>
+    <TableCell>gRPC</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell firstColumn>Protocol</TableCell>
+    <TableCell>HTTP/1.1</TableCell>
+    <TableCell>HTTP</TableCell>
+    <TableCell>HTTP/2</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell firstColumn>Data Format</TableCell>
+    <TableCell>JSON (commonly)</TableCell>
+    <TableCell>JSON</TableCell>
+    <TableCell>Protobuf</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell firstColumn>Endpoint Structure</TableCell>
+    <TableCell>Multiple endpoints</TableCell>
+    <TableCell>Single endpoint</TableCell>
+    <TableCell>Multiple endpoints</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell firstColumn>Data Fetching</TableCell>
+    <TableCell>Defined by server</TableCell>
+    <TableCell>Defined by client</TableCell>
+    <TableCell>Defined by server</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell firstColumn>Best For</TableCell>
+    <TableCell>CRUD, web apps</TableCell>
+    <TableCell>Complex querying, content-heavy</TableCell>
+    <TableCell>Real-time, low-latency</TableCell>
+  </TableRow>
+</CustomTable>
 
 ## Conclusion
 
