@@ -29,7 +29,7 @@ export default function BlogPostLayout({
         {image && (
           <CardContent>
             <div className="relative w-full h-64 md:h-80">
-              <Image src={image} alt={title} layout="fill" objectFit="cover" className="rounded-lg" />
+              <Image src={image} alt={title} fill className="object-cover rounded-lg" />
             </div>
           </CardContent>
         )}

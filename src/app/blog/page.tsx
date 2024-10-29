@@ -1,5 +1,3 @@
-// src/app/blog/page.tsx
-
 import fs from 'fs';
 import path from 'path';
 import Link from 'next/link';
@@ -18,7 +16,6 @@ interface Post {
 }
 
 export async function generateMetadata() {
-  // Get the latest post for metadata
   const postsDirectory = path.join(process.cwd(), 'src', 'content', 'blog');
   const filenames = fs.readdirSync(postsDirectory);
   const latestPostFile = filenames[0];
@@ -65,7 +62,7 @@ export default function BlogPage() {
         {posts.map((post) => (
           <li key={post.slug}>
             <Link href={`/blog/${post.slug}`} passHref>
-              <Card className="hover:shadow-lg transition-shadow">
+              <Card className="hover:shadow-lg transition-shadow h-full">
                 {post.image && (
                   <Image
                     src={post.image}
@@ -76,11 +73,11 @@ export default function BlogPage() {
                   />
                 )}
                 <CardHeader className="p-6">
-                  <CardTitle className="text-xl font-semibold">{post.title}</CardTitle>
+                  <CardTitle className="text-xl font-semibold line-clamp-2">{post.title}</CardTitle>
                   <CardDescription>{post.date}</CardDescription>
                 </CardHeader>
                 <CardContent className="p-6">
-                  <p>{post.description}</p>
+                  <p className="line-clamp-3">{post.description}</p>
                 </CardContent>
               </Card>
             </Link>

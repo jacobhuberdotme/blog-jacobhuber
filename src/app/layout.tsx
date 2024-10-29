@@ -18,8 +18,20 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Jacob Huber",
-  description: "Personal website of Jacob Huber",
+  metadataBase: new URL('https://jacobhuber.me'),
+  title: 'Jacob Huber',
+  description: 'Jacob Huber\'s personal website',
+  openGraph: {
+    title: 'Jacob Huber',
+    description: 'Welcome to Jacob Huber\'s personal website',
+    images: '/default-image.jpg',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Jacob Huber',
+    description: 'Jacob Huber\'s personal website',
+    images: '/default-image.jpg',
+  },
 };
 
 export default function RootLayout({
