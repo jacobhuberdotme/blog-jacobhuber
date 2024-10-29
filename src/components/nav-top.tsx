@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
+import { NavigationMenu, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, navigationMenuTriggerStyle } from "./ui/navigation-menu";
 
 export function NavTop() {
   const [isOpen, setIsOpen] = useState(false);
@@ -14,21 +15,31 @@ export function NavTop() {
         Jacob Huber
       </Link>
       <div className="hidden md:flex space-x-4">
-        <Link href="/blog">
-          <Button variant="link" className="text-foreground">
-            Blog
-          </Button>
-        </Link>
-        <Link href="/resume">
-          <Button variant="link" className="text-foreground">
-            Resume
-          </Button>
-        </Link>
-        <Link href="/about">
-          <Button variant="link" className="text-foreground">
-            About
-          </Button>
-        </Link>
+        <NavigationMenu>
+          <NavigationMenuList>
+          <NavigationMenuItem>
+              <Link href="/blog" legacyBehavior passHref>
+                <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                  Blog
+                </NavigationMenuLink>
+              </Link>
+            </NavigationMenuItem>
+            <NavigationMenuItem>
+              <Link href="/resume" legacyBehavior passHref>
+                <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                  Resume
+                </NavigationMenuLink>
+              </Link>
+            </NavigationMenuItem>
+            <NavigationMenuItem>
+              <Link href="/about" legacyBehavior passHref>
+                <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                  About
+                </NavigationMenuLink>
+              </Link>
+            </NavigationMenuItem>
+          </NavigationMenuList>
+        </NavigationMenu>
       </div>
       <div className="md:hidden">
         <Button

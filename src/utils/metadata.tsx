@@ -11,8 +11,8 @@ interface MetadataProps {
 
 // Function to generate metadata
 export function generatePageMetadata({
-  title,
-  description,
+  title = "Jacob Huber",
+  description = "Welcome to Jacob Huber's personal website. Explore my experience, projects, and blog posts.",
   image = '/default-image.jpg',
   url,
 }: MetadataProps): Metadata {
