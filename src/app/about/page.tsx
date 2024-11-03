@@ -1,74 +1,70 @@
 // src/app/about/page.tsx
+
 import { generatePageMetadata } from "@/utils/metadata";
-import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
+import { Separator } from "@/components/ui/separator";
+import Image from "next/image";
 
 export async function generateMetadata() {
   return generatePageMetadata({
     title: "Jacob Huber - About Me",
-    description: "Get to know Jacob Huber, his background, interests, and passions.",
+    description: "Get to know Jacob Huber, his journey, interests, and values.",
     image: "./me.jpeg",
   });
 }
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
-import { Separator } from "@/components/ui/separator";
 
 export default function AboutPage() {
   return (
     <section className="container mx-auto px-4 py-10">
-      {/* Hero Section */}
       <div className="text-center mb-10">
-        <Avatar className="mx-auto mb-4 w-32 h-32">
-          <AvatarImage src="/profile-pic.jpg" alt="Jacob Huber" />
-          <AvatarFallback>JH</AvatarFallback>
-        </Avatar>
-        <h1 className="text-4xl font-bold mb-2">About Me</h1>
-        <p className="text-lg text-muted-foreground">A brief introduction to Jacob Huber</p>
+        <Image
+          src="/me.jpeg"
+          alt="Jacob Huber"
+          width={128}
+          height={128}
+          className="mx-auto rounded-full"
+        />
+        <h1 className="text-4xl font-bold mt-6">Jacob Huber</h1>
+        <p className="text-lg text-muted-foreground mt-2">Enthusiast in Life, Technology, and Adventure</p>
       </div>
 
       <Separator className="mb-8" />
 
-      {/* Bio Section */}
+      {/* My Journey Section */}
       <Card className="mb-8">
         <CardHeader>
-          <CardTitle>Biography</CardTitle>
-          <CardDescription>Get to know my journey and interests</CardDescription>
+          <CardTitle>My Journey</CardTitle>
+          <CardDescription>The path that led me to tech and beyond</CardDescription>
         </CardHeader>
         <CardContent>
           <p className="text-lg leading-relaxed">
-            Hi, I&apos;m Jacob Huber, a software engineer with a passion for solving complex problems and building impactful
-            digital solutions. With a background in C#, REST APIs, and web technologies, I&apos;ve developed a strong
-            foundation in both back-end and front-end development.
+            My path to technology was sparked by early curiosity—exploring video games on Nintendo, dabbling with the family computer, and discovering the creativity tech could bring. This passion eventually inspired a career change, transitioning from managing restaurant operations to building digital solutions.
           </p>
           <p className="text-lg leading-relaxed mt-4">
-            In addition to my technical career, I enjoy spending time outdoors, exploring new places, and engaging with
-            communities around technology and open-source projects.
+            After moving from the food industry into tech as a Technical Solutions Analyst, I continued to evolve my skills, focusing on areas like AI, blockchain, and web development. Now, as a Software Engineer, I work at the intersection of problem-solving and innovation, bringing ideas to life in code.
           </p>
         </CardContent>
       </Card>
 
-      {/* Details Section */}
+      {/* Beyond the Screen Section */}
       <Card className="mb-8">
         <CardHeader>
-          <CardTitle>Personal Details</CardTitle>
-          <CardDescription>A bit more about me</CardDescription>
+          <CardTitle>Beyond the Screen</CardTitle>
+          <CardDescription>Life outside tech, travel, and adventure</CardDescription>
         </CardHeader>
         <CardContent>
-          <ul className="space-y-4">
-            <li>
-              <strong>Location:</strong> St. Louis, Missouri
-            </li>
-            <li>
-              <strong>Current Role:</strong> Software Engineer at symplr
-            </li>
-            <li>
-              <strong>Hobbies:</strong> Hiking, visiting wineries, working on side projects
-            </li>
-            <li>
-              <strong>Interests:</strong> Blockchain, AI, real estate, and personal development
-            </li>
-          </ul>
+          <p className="text-lg leading-relaxed">
+            Outside of work, I find balance by spending time outdoors and sharing new experiences with my wife. Whether we’re enjoying the beach, hiking through the mountains, or tackling DIY projects at home, I appreciate moments that inspire growth and connection. 
+          </p>
+          <p className="text-lg leading-relaxed mt-4">
+            I also enjoy real estate, managing rental properties, and cultivating comfortable spaces for tenants. And while tech and business pursuits keep me busy, I always make time for hobbies—catching a game, exploring local wineries, or just relaxing with our cats.
+          </p>
         </CardContent>
       </Card>
+
+      <div className="text-center mt-12">
+        <p className="text-lg">Interested in connecting? Feel free to reach out!</p>
+      </div>
     </section>
   );
 }
