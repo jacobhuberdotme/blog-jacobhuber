@@ -32,16 +32,16 @@ export function NavTop() {
               </Link>
             </NavigationMenuItem>
             <NavigationMenuItem>
-              <Link href="/resume" legacyBehavior passHref>
+              <Link href="/about" legacyBehavior passHref>
                 <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                  Resume
+                  About
                 </NavigationMenuLink>
               </Link>
             </NavigationMenuItem>
             <NavigationMenuItem>
-              <Link href="/about" legacyBehavior passHref>
+              <Link href="/resume" legacyBehavior passHref>
                 <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                  About
+                  Resume
                 </NavigationMenuLink>
               </Link>
             </NavigationMenuItem>

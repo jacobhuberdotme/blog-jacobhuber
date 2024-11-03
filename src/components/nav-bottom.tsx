@@ -33,10 +33,10 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="py-4 lg:py-8 bg-muted text-muted-foreground mt-16">
-      <div className="container max-w-4xl mx-auto flex flex-col lg:flex-row justify-between items-start gap-4 lg:gap-10 px-4">
-        {/* Logo / Copyright */}
-        <div className="text-center lg:text-left mb-3 lg:mb-0">
+    <footer className="py-6 lg:py-8 bg-muted text-muted-foreground mt-16">
+      <div className="container max-w-4xl mx-auto flex flex-col lg:flex-row justify-between items-start gap-6 lg:gap-10 px-4">
+        {/* Copyright */}
+        <div className="text-center lg:text-left">
           <p className="text-sm md:text-base">
             © {new Date().getFullYear()} Jacob Huber Endeavors, LLC.
           </p>
@@ -60,9 +60,9 @@ export default function Footer() {
         </ul>
       </div>
 
-      <div className="container max-w-4xl mx-auto flex flex-col md:flex-row justify-between text-sm gap-4 md:gap-10 px-4 mt-4">
-        {/* Footer Information */}
-        <div className="text-left font-light">
+      <div className="container max-w-4xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6 px-4 mt-6">
+        {/* Footer Information - Left Aligned */}
+        <div className="text-left font-light w-full md:w-auto">
           <p>
             For more details, please see{" "}
             <Link
@@ -78,22 +78,22 @@ export default function Footer() {
         </div>
 
         {/* Social Icons and Theme Toggle */}
-        <div className="flex items-center justify-center md:justify-end w-full md:w-auto gap-6 mt-4 md:mt-0">
-          {socialLinks.map(({ href, icon, label }) => (
-            <a
-              key={label}
-              href={href}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label={label}
-              className="hover:text-primary transition-colors"
-            >
-              <FontAwesomeIcon icon={icon} className="w-5 h-5" />
-            </a>
-          ))}
-          <div className="ml-auto md:ml-0">
-            <ThemeToggle />
+        <div className="flex items-center justify-between w-full md:w-auto gap-6">
+          <div className="flex gap-4">
+            {socialLinks.map(({ href, icon, label }) => (
+              <a
+                key={label}
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={label}
+                className="hover:text-primary transition-colors"
+              >
+                <FontAwesomeIcon icon={icon} className="w-5 h-5" />
+              </a>
+            ))}
           </div>
+          <ThemeToggle />
         </div>
       </div>
     </footer>
