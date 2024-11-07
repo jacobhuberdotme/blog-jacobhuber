@@ -60,11 +60,14 @@ export function NavTop() {
       </div>
       {isOpen && (
         <div className="absolute top-16 right-4 bg-background p-4 rounded-md shadow-md flex flex-col space-y-2 md:hidden">
-          <Link href="/about" className="text-foreground" onClick={() => setIsOpen(false)}>
-            About
-          </Link>
           <Link href="/blog" className="text-foreground" onClick={() => setIsOpen(false)}>
             Blog
+          </Link>
+          <Link href="/projects" className="text-foreground" onClick={() => setIsOpen(false)}>
+            Projects
+          </Link>
+          <Link href="/about" className="text-foreground" onClick={() => setIsOpen(false)}>
+            About
           </Link>
           <Link href="/resume" className="text-foreground" onClick={() => setIsOpen(false)}>
             Resume
