@@ -1,12 +1,7 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
-// import { Button } from "@/components/ui/button";
-// import { Alert } from "@/components/ui/alert";
-// import { useState } from "react";
 
 export default function TermsAndPoliciesPage() {
-  // const [accepted, setAccepted] = useState(false);
-
   return (
     <div className="container max-w-3xl mx-auto py-10 px-4">
       <Card className="mb-6">
@@ -17,7 +12,7 @@ export default function TermsAndPoliciesPage() {
         </CardHeader>
         <CardContent>
           <p className="text-sm text-muted-foreground">
-            Please read the following terms and policies carefully before using this website.
+            Please read the following terms and policies carefully before using this website or subscribing to our services.
           </p>
         </CardContent>
       </Card>
@@ -51,7 +46,27 @@ export default function TermsAndPoliciesPage() {
             This site may collect basic analytics data, such as page views, to improve the content and user experience. No personally identifiable information is collected without your consent.
           </p>
           <p className="text-sm text-muted-foreground">
-            If you choose to subscribe to updates or leave a comment, your email will only be used for communication regarding this website and will not be shared with third parties.
+            If you choose to subscribe to updates, leave a comment, or use services provided by this site, your email and/or phone number will only be used for communication related to this website and its services and will not be shared with third parties without your explicit consent.
+          </p>
+        </CardContent>
+      </Card>
+
+      <Separator className="my-6" />
+
+      {/* SMS Notifications Section */}
+      <Card className="mb-6">
+        <CardHeader>
+          <CardTitle className="text-xl font-semibold">SMS Notifications and Consent</CardTitle>
+        </CardHeader>
+        <CardContent>
+          <p className="text-sm text-muted-foreground mb-4">
+            By subscribing to SMS notifications, you explicitly consent to receive text messages related to the services offered on this site, including Ethereum price alerts or similar updates. Standard message and data rates may apply.
+          </p>
+          <p className="text-sm text-muted-foreground mb-4">
+            Your phone number will not be shared with third parties and will only be used for the purpose of sending you SMS notifications. You can opt-out of receiving text messages at any time by replying "STOP" to any text message received from us.
+          </p>
+          <p className="text-sm text-muted-foreground">
+            If you have any questions regarding SMS notifications or your data, please contact us at <a href="mailto:contact@jacobhuber.me" className="underline">contact@jacobhuber.me</a>.
           </p>
         </CardContent>
       </Card>
@@ -69,22 +84,6 @@ export default function TermsAndPoliciesPage() {
           </p>
         </CardContent>
       </Card>
-
-      {/* <Separator className="my-6" />
-
-      <Alert className="mb-6" variant="info">
-        <p className="text-sm">
-          By continuing to use this site, you acknowledge that you have read and agree to these terms and policies.
-        </p>
-      </Alert>
-
-      <Button 
-        onClick={() => setAccepted(true)} 
-        className="w-full"
-        disabled={accepted}
-      >
-        {accepted ? "Acknowledged" : "Acknowledge Terms"}
-      </Button> */}
     </div>
   );
 }

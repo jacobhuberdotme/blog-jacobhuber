@@ -14,6 +14,17 @@ const nextConfig = {
       },
     ],
   },
+  webpack: (config, { isServer }) => {
+    if (isServer) {
+      // Exclude ws from being bundled on the server
+      config.externals.push('ws');
+    } else {
+      // Prevent issues with bufferutil and utf-8-validate modules in the browser
+      config.resolve.alias['bufferutil'] = false;
+      config.resolve.alias['utf-8-validate'] = false;
+    }
+    return config;
+  },
 };
 
 const withMDX = createMDX({
