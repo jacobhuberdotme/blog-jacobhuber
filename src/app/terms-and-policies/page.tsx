@@ -63,7 +63,7 @@ export default function TermsAndPoliciesPage() {
             By subscribing to SMS notifications, you explicitly consent to receive text messages related to the services offered on this site, including Ethereum price alerts or similar updates. Standard message and data rates may apply.
           </p>
           <p className="text-sm text-muted-foreground mb-4">
-            Your phone number will not be shared with third parties and will only be used for the purpose of sending you SMS notifications. You can opt-out of receiving text messages at any time by replying "STOP" to any text message received from us.
+            Your phone number will not be shared with third parties and will only be used for the purpose of sending you SMS notifications. You can opt-out of receiving text messages at any time by replying &quot;STOP&quot; to any text message received from us.
           </p>
           <p className="text-sm text-muted-foreground">
             If you have any questions regarding SMS notifications or your data, please contact us at <a href="mailto:contact@jacobhuber.me" className="underline">contact@jacobhuber.me</a>.

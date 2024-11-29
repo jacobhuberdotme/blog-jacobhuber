@@ -2,6 +2,22 @@ import WebSocket from "ws";
 import Twilio from "twilio";
 import { NextResponse } from "next/server";
 
+interface TickerEvent {
+  type: string;
+  tickers: Ticker[];
+}
+
+interface Ticker {
+  type: string;
+  product_id: string;
+  price: string;
+}
+
+interface WebSocketMessage {
+  channel: string;
+  events: TickerEvent[];
+}
+
 // Twilio Credentials
 const accountSid = process.env.TWILIO_ACCOUNT_SID as string;
 const authToken = process.env.TWILIO_AUTH_TOKEN as string;
@@ -36,23 +52,23 @@ async function connectWebSocket() {
     ws.on("message", (data: string | Buffer) => {
       const rawMessage = data.toString();
       console.log("Raw WebSocket Message:", rawMessage);
-
+    
       try {
-        const message = JSON.parse(rawMessage);
-
+        const message: WebSocketMessage = JSON.parse(rawMessage);
+    
         // Extract price if the message is a ticker update
         if (
           message.channel === "ticker" &&
           message.events &&
           Array.isArray(message.events)
         ) {
-          const tickerEvent = message.events.find((event: any) => event.type === "update");
+          const tickerEvent = message.events.find((event) => event.type === "update");
           if (tickerEvent && tickerEvent.tickers && Array.isArray(tickerEvent.tickers)) {
-            const ticker = tickerEvent.tickers.find((t: any) => t.product_id === "ETH-USD");
+            const ticker = tickerEvent.tickers.find((t) => t.product_id === "ETH-USD");
             if (ticker && ticker.price) {
               const price = parseFloat(ticker.price);
               console.log(`Current ETH Price: ${price}`);
-
+    
               // Check if price crosses target and respects cooldown
               const currentTime = Date.now();
               if (price >= targetPrice && currentTime - lastNotificationTime >= COOL_DOWN_PERIOD) {
