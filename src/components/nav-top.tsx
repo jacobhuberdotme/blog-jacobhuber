@@ -3,77 +3,66 @@
 import { useState } from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { Menu, X } from "lucide-react";
-import { NavigationMenu, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, navigationMenuTriggerStyle } from "./ui/navigation-menu";
+import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
+import { Menu } from "lucide-react";
 
 export function NavTop() {
   const [isOpen, setIsOpen] = useState(false);
 
+  const closeSheet = () => setIsOpen(false);
+
   return (
     <nav className="flex items-center justify-between p-4 bg-background text-foreground">
+      {/* Logo */}
       <Link href="/" className="text-xl font-bold">
         Jacob Huber
       </Link>
+
+      {/* Desktop Navigation */}
       <div className="hidden md:flex space-x-4">
-        <NavigationMenu>
-          <NavigationMenuList>
-          <NavigationMenuItem>
-              <Link href="/blog" legacyBehavior passHref>
-                <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                  Blog
-                </NavigationMenuLink>
-              </Link>
-            </NavigationMenuItem>
-            <NavigationMenuItem>
-              <Link href="/projects" legacyBehavior passHref>
-                <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                  Projects
-                </NavigationMenuLink>
-              </Link>
-            </NavigationMenuItem>
-            <NavigationMenuItem>
-              <Link href="/about" legacyBehavior passHref>
-                <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                  About
-                </NavigationMenuLink>
-              </Link>
-            </NavigationMenuItem>
-            <NavigationMenuItem>
-              <Link href="/resume" legacyBehavior passHref>
-                <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                  Resume
-                </NavigationMenuLink>
-              </Link>
-            </NavigationMenuItem>
-          </NavigationMenuList>
-        </NavigationMenu>
+        <Link href="/blog" className="hover:underline">
+          Blog
+        </Link>
+        <Link href="/projects" className="hover:underline">
+          Projects
+        </Link>
+        <Link href="/about" className="hover:underline">
+          About
+        </Link>
+        <Link href="/resume" className="hover:underline">
+          Resume
+        </Link>
       </div>
+
+      {/* Mobile Navigation - Sheet (Drawer) */}
       <div className="md:hidden">
-        <Button
-          variant="outline"
-          size="icon"
-          className="text-foreground"
-          onClick={() => setIsOpen(!isOpen)}
-        >
-          {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
-        </Button>
+        <Sheet open={isOpen} onOpenChange={setIsOpen}>
+          <SheetTrigger asChild>
+            <Button variant="outline" size="icon">
+              <Menu className="w-5 h-5" />
+            </Button>
+          </SheetTrigger>
+          <SheetContent side="right" className="w-[300px]">
+            <SheetHeader>
+              <SheetTitle>Navigation</SheetTitle>
+            </SheetHeader>
+            <nav className="flex flex-col space-y-4 mt-4">
+              <Link href="/blog" className="hover:underline text-lg" onClick={closeSheet}>
+                Blog
+              </Link>
+              <Link href="/projects" className="hover:underline text-lg" onClick={closeSheet}>
+                Projects
+              </Link>
+              <Link href="/about" className="hover:underline text-lg" onClick={closeSheet}>
+                About
+              </Link>
+              <Link href="/resume" className="hover:underline text-lg" onClick={closeSheet}>
+                Resume
+              </Link>
+            </nav>
+          </SheetContent>
+        </Sheet>
       </div>
-      {isOpen && (
-        <div className="absolute top-16 right-4 bg-background p-4 rounded-md shadow-md flex flex-col space-y-2 md:hidden">
-          <Link href="/blog" className="text-foreground" onClick={() => setIsOpen(false)}>
-            Blog
-          </Link>
-          <Link href="/projects" className="text-foreground" onClick={() => setIsOpen(false)}>
-            Projects
-          </Link>
-          <Link href="/about" className="text-foreground" onClick={() => setIsOpen(false)}>
-            About
-          </Link>
-          <Link href="/resume" className="text-foreground" onClick={() => setIsOpen(false)}>
-            Resume
-          </Link>
-        </div>
-      )}
     </nav>
   );
 }
