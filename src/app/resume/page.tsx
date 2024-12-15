@@ -21,7 +21,7 @@ export default function ResumePage() {
       <Card className="mb-8">
         <CardHeader>
           <CardTitle>Experience</CardTitle>
-          <CardDescription>My professional journey and achievements</CardDescription>
+          <CardDescription>My professional journey</CardDescription>
         </CardHeader>
         <CardContent>
           <Accordion type="single" collapsible>
@@ -32,13 +32,16 @@ export default function ResumePage() {
               <p className="text-sm mt-2 mb-4">
                 Specializes in custom data management applications focused on importing and exporting data.
               </p>
-              <p className="text-sm mb-2">• Utilized APIs to support efficient import and export processes, improving data accessibility for clients.</p>
-              <p className="text-sm mb-2">• Developed rapid data import and export solutions to address urgent client requirements effectively.</p>
-              <p className="text-sm mb-2">• Provided API consulting to guide clients on best practices for data handling and integration.</p>
-              <p className="text-sm">• Collaborated with cross-functional teams to deliver tailored solutions, enhancing client satisfaction and operational efficiency.</p>
+              <p className="text-sm mb-2">• Operate with a high degree of self-sufficiency, managing multiple concurrent projects with minimal guidance beyond prioritization from leadership.</p>
+              <p className="text-sm mb-2">• Provide expert API consulting for the payer application, helping clients understand and effectively implement API documentation to meet their needs.</p>
+              <p className="text-sm mb-2">• Design and develop custom data import and export solutions for provider and payer applications, ensuring seamless integration and functionality.</p>
+              <p className="text-sm mb-2">•	Collaborate cross-functionally with internal teams—including Product, Support, DevOps, Sales, and Services—to deliver tailored solutions that meet client requirements.</p>
+              <p className="text-sm mb-2">•	Work directly with clients and internal stakeholders to gather requirements, provide updates, and ensure projects are completed on time and to satisfaction.</p>
+              <p className="text-sm mb-2">•	Skilled in written communication via emails and Teams chat while leveraging virtual calls when necessary for effective client and team collaboration.</p>
+              <p className="text-sm">• Consistently meet deadlines and deliver high-quality results, balancing client satisfaction and operational efficiency.</p>
             </AccordionContent>
           </AccordionItem>
-
+	
             {/* Technical Support Specialist at symplr */}
             <AccordionItem value="techSupportSymplr">
               <AccordionTrigger>Technical Support Specialist, symplr (Oct 2020 - Feb 2024)</AccordionTrigger>
@@ -46,9 +49,12 @@ export default function ResumePage() {
                 <p className="text-sm mb-4">
                   Resolved complex issues in a team-oriented environment, focusing on client satisfaction.
                 </p>
-                <p className="text-sm">• Troubleshot and prioritized issues independently and collaboratively.</p>
-                <p className="text-sm">• Maintained documentation to facilitate knowledge transfer.</p>
-              </AccordionContent>
+                <p className="text-sm mb-2">•	Provided dedicated support for the payer application, ensuring client satisfaction through efficient troubleshooting and issue resolution.</p>
+                <p className="text-sm mb-2">•	Collaborated with the Product team to clarify application functionality, document bugs or defects, and facilitate debugging and resolution processes.</p>
+                <p className="text-sm mb-2">•	Partnered with consultants during payer application implementations to deliver immediate support and address critical client needs.</p>
+                <p className="text-sm mb-2">•	Operated independently while remaining readily available to assist colleagues and clients, fostering a collaborative and team-oriented environment.</p>
+                <p className="text-sm">• Proactively sought help when needed and maintained detailed documentation to streamline knowledge transfer and enhance team productivity.</p>
+            </AccordionContent>
             </AccordionItem>
 
             {/* Cerner Experience */}
@@ -58,9 +64,12 @@ export default function ResumePage() {
                 <p className="text-sm mb-4">
                   Specialized in frontend application support and issue resolution.
                 </p>
-                <p className="text-sm">• Conducted detailed investigations using technical tools and client feedback.</p>
-                <p className="text-sm">• Documented investigations to support efficient resolution tracking.</p>
-              </AccordionContent>
+                <p className="text-sm mb-2">•	Delivered technical support for healthcare applications, focusing on efficient troubleshooting and resolution of client-reported issues.</p>
+                <p className="text-sm mb-2">•	Partnered with Product teams to clarify application functionality, identify and document defects, and assist in resolving technical challenges.</p>
+                <p className="text-sm mb-2">•	Worked alongside implementation consultants to provide immediate support for critical application needs during deployments.</p>
+                <p className="text-sm mb-2">•	Maintained a strong sense of autonomy while collaborating with colleagues and teams to ensure client success.</p>
+                <p className="text-sm">• Created and maintained detailed documentation of investigations, facilitating effective knowledge transfer and ongoing process improvement.</p>
+            </AccordionContent>
             </AccordionItem>
 
             {/* Chipotle Experience */}
@@ -70,9 +79,14 @@ export default function ResumePage() {
                 <p className="text-sm mb-4">
                   Transitioned from Crew Member to General Manager, overseeing team and operations.
                 </p>
-                <p className="text-sm">• Managed day-to-day operations with a focus on efficiency and team building.</p>
-                <p className="text-sm">• Balanced budgets, schedules, and staff development initiatives.</p>
-              </AccordionContent>
+                <p className="text-sm mb-2">•	Led all aspects of restaurant operations, managing a high-performing team and consistently achieving top sales rankings in the region.</p>
+                <p className="text-sm mb-2">•	Oversaw profit and loss (P&L) management, including budgeting, cost control, and financial reporting, ensuring profitability and operational efficiency.</p>
+                <p className="text-sm mb-2">•	Directed hiring, training, and staff development efforts, building a cohesive and motivated team while promoting from within to foster growth.</p>
+                <p className="text-sm mb-2">•	Maintained strict adherence to food safety and quality standards, achieving consistently high scores on health inspections and maintaining compliance with all regulatory requirements.</p>
+                <p className="text-sm mb-2">•	Implemented scheduling and labor management strategies to optimize productivity while supporting team work-life balance.</p>
+                <p className="text-sm mb-2">•	Ensured exceptional customer experiences by upholding Chipotle&apos;s standards for food quality, cleanliness, and service excellence.</p>
+                <p className="text-sm">•	Maintained a strong sense of autonomy while collaborating with colleagues and teams to ensure client success.</p>
+            </AccordionContent>
             </AccordionItem>
           </Accordion>
         </CardContent>

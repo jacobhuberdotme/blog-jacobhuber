@@ -57,7 +57,7 @@ export default function ProjectsPage() {
   const projects = getProjects();
 
   return (
-    <main className="container mx-auto p-4">
+    <section>
       <h1 className="text-4xl font-bold text-center mb-6">Projects</h1>
       <p className="text-center text-lg mb-10">
         Dive into my collection of personal and professional projects, showcasing my development journey.
@@ -92,6 +92,6 @@ export default function ProjectsPage() {
           </li>
         ))}
       </ul>
-    </main>
+    </section>
   );
 }

@@ -57,7 +57,7 @@ export default function BlogPage() {
   const posts = getPosts();
 
   return (
-    <main className="container mx-auto p-4">
+    <section>
       <h1 className="text-4xl font-bold text-center mb-6">Blog</h1>
       <p className="text-center text-lg mb-10">Welcome to my blog page where I share insights and articles.</p>
 
@@ -89,6 +89,6 @@ export default function BlogPage() {
           </li>
         ))}
       </ul>
-    </main>
+    </section>
   );
 }

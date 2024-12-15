@@ -1,10 +1,19 @@
-import Hero from "@/components/hero";
+import Hero from "@/components/home/Hero";
+import HighlightSection from "@/components/home/HighlightSection";
+import FeaturedContentSection from "@/components/home/FeaturedContentSection";
+import CallToAction from "@/components/home/CallToAction";
+import { Separator } from "@/components/ui/separator";
 
-// src/app/page.tsx
 export default function HomePage() {
   return (
-    <main>
+    <div>
       <Hero />
-    </main>
+      <Separator className="my-8" />
+      <HighlightSection />
+      <Separator className="my-8" />
+      <FeaturedContentSection />
+      <Separator className="my-8" />
+      <CallToAction />
+    </div>
   );
 }

@@ -16,7 +16,7 @@ export default function Footer() {
 
   const socialLinks = [
     {
-      href: "https://github.com/jacobhuberendeavorsllc",
+      href: "https://github.com/jacobhuberdotme",
       icon: faGithub,
       label: "GitHub",
     },
@@ -26,15 +26,15 @@ export default function Footer() {
       label: "Email",
     },
     {
-      href: "https://x.com/cobmin",
+      href: "https://x.com/jacobhuberdotme",
       icon: faXTwitter,
       label: "Twitter",
     },
   ];
 
   return (
-    <footer className="py-6 lg:py-8 bg-muted text-muted-foreground mt-16">
-      <div className="container max-w-4xl mx-auto flex flex-col lg:flex-row justify-between items-start gap-6 lg:gap-10 px-4">
+    <footer className="py-6 lg:py-8 bg-muted text-muted-foreground mt-8">
+      <div className="container max-w-4xl mx-auto flex flex-col lg:flex-row justify-between items-start gap-6 lg:gap-10 px-2">
         {/* Copyright */}
         <div className="text-center lg:text-left">
           <p className="text-sm md:text-base">
@@ -60,7 +60,7 @@ export default function Footer() {
         </ul>
       </div>
 
-      <div className="container max-w-4xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6 px-4 mt-6">
+      <div className="container max-w-4xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6 px-2 mt-6">
         {/* Footer Information - Left Aligned */}
         <div className="text-left font-light w-full md:w-auto">
           <p>
