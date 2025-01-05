@@ -2,7 +2,7 @@ BEGIN:VCALENDAR
 VERSION:2.0
 CALSCALE:GREGORIAN
 METHOD:PUBLISH
-PRODID:-//Saint Louis Symphony Orchestra//Dvořák's New World//EN
+PRODID:-//Saint Louis Symphony Orchestra//Dvořák's New World & Stéphane Conducts Ravel//EN
 BEGIN:VEVENT
 UID:20250110T163000Z-1@slso.org
 DTSTAMP:20250101T180000Z
@@ -26,5 +26,29 @@ LOCATION:Touhill Performing Arts Center, St. Louis, MO
 STATUS:CONFIRMED
 SEQUENCE:0
 URL:https://shop.slso.org/8093
+END:VEVENT
+BEGIN:VEVENT
+UID:20250117T193000Z-3@slso.org
+DTSTAMP:20250101T180000Z
+DTSTART:20250117T193000Z
+DTEND:20250117T210000Z
+SUMMARY:Stéphane Conducts Ravel - Sonic Impressionism
+DESCRIPTION:Music Director Stéphane Denève explores many sides of Maurice Ravel’s music, from Mother Goose to Bolero. Kirill Gerstein plays both piano concertos on one program, a formidable challenge.
+LOCATION:Touhill Performing Arts Center, St. Louis, MO
+STATUS:CONFIRMED
+SEQUENCE:0
+URL:https://shop.slso.org/8094
+END:VEVENT
+BEGIN:VEVENT
+UID:20250119T150000Z-4@slso.org
+DTSTAMP:20250101T180000Z
+DTSTART:20250119T150000Z
+DTEND:20250119T163000Z
+SUMMARY:Stéphane Conducts Ravel - Sonic Impressionism
+DESCRIPTION:Music Director Stéphane Denève explores many sides of Maurice Ravel’s music, from Mother Goose to Bolero. Kirill Gerstein plays both piano concertos on one program, a formidable challenge.
+LOCATION:Touhill Performing Arts Center, St. Louis, MO
+STATUS:CONFIRMED
+SEQUENCE:0
+URL:https://shop.slso.org/8095
 END:VEVENT
 END:VCALENDAR

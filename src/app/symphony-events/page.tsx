@@ -7,7 +7,7 @@ export default function SymphonyEventPage() {
     <main className="container mx-auto py-12 text-center">
       <h1 className="text-4xl font-bold mb-6">Saint Louis Symphony Orchestra</h1>
       <p className="text-lg text-muted-foreground mb-8">
-        I’ve been enjoying the Saint Louis Symphony Orchestra more recently, especially the performances paired with movies. It&apos;s a fantastic way to unwind and enjoy incredible music right here in St. Louis.
+        I’ve been enjoying the Saint Louis Symphony Orchestra more recently, especially the performances paired with movies. It&apos;s a great way to unwind and enjoy incredible music right here in St. Louis.
       </p>
       <p className="text-lg text-muted-foreground mb-8">
         Click below to add all the events directly to your calendar.
