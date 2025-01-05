@@ -1,0 +1,30 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+PRODID:-//Saint Louis Symphony Orchestra//Dvořák's New World//EN
+BEGIN:VEVENT
+UID:20250110T163000Z-1@slso.org
+DTSTAMP:20250101T180000Z
+DTSTART:20250110T163000Z
+DTEND:20250110T180000Z
+SUMMARY:Dvořák's New World - American Sounds
+DESCRIPTION:Daniela Candillari conducts this program featuring works by Barber, Shekhar, and Dvořák. Highlights include Hanzhi Wang performing a world premiere accordion concerto and Dvořák’s Symphony No. 9.
+LOCATION:Touhill Performing Arts Center, St. Louis, MO
+STATUS:CONFIRMED
+SEQUENCE:0
+URL:https://shop.slso.org/8092
+END:VEVENT
+BEGIN:VEVENT
+UID:20250111T013000Z-2@slso.org
+DTSTAMP:20250101T180000Z
+DTSTART:20250112T013000Z
+DTEND:20250112T030000Z
+SUMMARY:Dvořák's New World - American Sounds
+DESCRIPTION:Daniela Candillari conducts this program featuring works by Barber, Shekhar, and Dvořák. Highlights include Hanzhi Wang performing a world premiere accordion concerto and Dvořák’s Symphony No. 9.
+LOCATION:Touhill Performing Arts Center, St. Louis, MO
+STATUS:CONFIRMED
+SEQUENCE:0
+URL:https://shop.slso.org/8093
+END:VEVENT
+END:VCALENDAR
