@@ -2,53 +2,101 @@ BEGIN:VCALENDAR
 VERSION:2.0
 CALSCALE:GREGORIAN
 METHOD:PUBLISH
-PRODID:-//Saint Louis Symphony Orchestra//Dvořák's New World & Stéphane Conducts Ravel//EN
+PRODID:-//Saint Louis Symphony Orchestra//Concert Calendar//EN
 BEGIN:VEVENT
 UID:20250110T163000Z-1@slso.org
 DTSTAMP:20250101T180000Z
 DTSTART:20250110T163000Z
 DTEND:20250110T180000Z
 SUMMARY:Dvořák's New World - American Sounds
-DESCRIPTION:Daniela Candillari conducts this program featuring works by Barber, Shekhar, and Dvořák. Highlights include Hanzhi Wang performing a world premiere accordion concerto and Dvořák’s Symphony No. 9.
+DESCRIPTION:Daniela Candillari conducts Antonín Dvořák’s beloved “New World” symphony, while star accordionist Hanzhi Wang premieres a new concerto by Nina Shekhar.
 LOCATION:Touhill Performing Arts Center, St. Louis, MO
 STATUS:CONFIRMED
 SEQUENCE:0
-URL:https://shop.slso.org/8092
+URL:https://shop.slso.org/8092/8115
 END:VEVENT
 BEGIN:VEVENT
-UID:20250111T013000Z-2@slso.org
+UID:20250111T193000Z-2@slso.org
 DTSTAMP:20250101T180000Z
 DTSTART:20250112T013000Z
 DTEND:20250112T030000Z
 SUMMARY:Dvořák's New World - American Sounds
-DESCRIPTION:Daniela Candillari conducts this program featuring works by Barber, Shekhar, and Dvořák. Highlights include Hanzhi Wang performing a world premiere accordion concerto and Dvořák’s Symphony No. 9.
+DESCRIPTION:Daniela Candillari conducts Antonín Dvořák’s beloved “New World” symphony, while star accordionist Hanzhi Wang premieres a new concerto by Nina Shekhar.
 LOCATION:Touhill Performing Arts Center, St. Louis, MO
 STATUS:CONFIRMED
 SEQUENCE:0
-URL:https://shop.slso.org/8093
+URL:https://shop.slso.org/8092/8116
 END:VEVENT
 BEGIN:VEVENT
 UID:20250117T193000Z-3@slso.org
 DTSTAMP:20250101T180000Z
-DTSTART:20250117T193000Z
-DTEND:20250117T210000Z
+DTSTART:20250118T013000Z
+DTEND:20250118T030000Z
 SUMMARY:Stéphane Conducts Ravel - Sonic Impressionism
 DESCRIPTION:Music Director Stéphane Denève explores many sides of Maurice Ravel’s music, from Mother Goose to Bolero. Kirill Gerstein plays both piano concertos on one program, a formidable challenge.
 LOCATION:Touhill Performing Arts Center, St. Louis, MO
 STATUS:CONFIRMED
 SEQUENCE:0
-URL:https://shop.slso.org/8094
+URL:https://shop.slso.org/8093/8117
 END:VEVENT
 BEGIN:VEVENT
 UID:20250119T150000Z-4@slso.org
 DTSTAMP:20250101T180000Z
-DTSTART:20250119T150000Z
-DTEND:20250119T163000Z
+DTSTART:20250119T210000Z
+DTEND:20250119T223000Z
 SUMMARY:Stéphane Conducts Ravel - Sonic Impressionism
 DESCRIPTION:Music Director Stéphane Denève explores many sides of Maurice Ravel’s music, from Mother Goose to Bolero. Kirill Gerstein plays both piano concertos on one program, a formidable challenge.
 LOCATION:Touhill Performing Arts Center, St. Louis, MO
 STATUS:CONFIRMED
 SEQUENCE:0
-URL:https://shop.slso.org/8095
+URL:https://shop.slso.org/8093/8169
+END:VEVENT
+BEGIN:VEVENT
+UID:20250123T183000Z-5@slso.org
+DTSTAMP:20250101T180000Z
+DTSTART:20250124T003000Z
+DTEND:20250124T013000Z
+SUMMARY:SLSO Community Concert: Untold Stories - LGBTQ+ Composers Through Time
+DESCRIPTION:A thought-provoking hour-long concert by musicians from the St. Louis Symphony Orchestra introduces stories of composers from the LGBTQ+ community over the last 1,000 years. This narrated performance includes music you know alongside stories you don’t about composers’ lives hidden by prejudice and legal consequences.
+LOCATION:Missouri History Museum, St. Louis, MO
+STATUS:CONFIRMED
+SEQUENCE:0
+URL:https://shop.slso.org/8595/8596
+END:VEVENT
+BEGIN:VEVENT
+UID:20250126T013000Z-6@slso.org
+DTSTAMP:20250101T180000Z
+DTSTART:20250126T013000Z
+DTEND:20250126T030000Z
+SUMMARY:Beethoven and Mahler - Masterful Storytellers
+DESCRIPTION:Two life-affirming musical tales: Music Director Stéphane Denève explores the vast range of human emotion in Mahler’s First Symphony, and soloist James Ehnes plays Beethoven’s uplifting Violin Concerto.
+LOCATION:Stifel Theatre, St. Louis, MO
+STATUS:CONFIRMED
+SEQUENCE:0
+URL:https://shop.slso.org/8094/8118
+END:VEVENT
+BEGIN:VEVENT
+UID:20250126T210000Z-7@slso.org
+DTSTAMP:20250101T180000Z
+DTSTART:20250126T210000Z
+DTEND:20250126T223000Z
+SUMMARY:Beethoven and Mahler - Masterful Storytellers
+DESCRIPTION:Two life-affirming musical tales: Music Director Stéphane Denève explores the vast range of human emotion in Mahler’s First Symphony, and soloist James Ehnes plays Beethoven’s uplifting Violin Concerto.
+LOCATION:Stifel Theatre, St. Louis, MO
+STATUS:CONFIRMED
+SEQUENCE:0
+URL:https://shop.slso.org/8094/8119
+END:VEVENT
+BEGIN:VEVENT
+UID:20250128T193000Z-5@slso.org
+DTSTAMP:20250101T180000Z
+DTSTART:20250129T013000Z
+DTEND:20250129T030000Z
+SUMMARY:Live at the Pulitzer - Inside Out
+DESCRIPTION:An eclectic combination of works progresses from outer joy and exuberance to inner serenity and calm. Andy Akiho’s reimagining of Bach, Elizabeth Ogonek’s water-inspired dynamism, and Anthony Vine’s soothing pairings complete the journey.
+LOCATION:Pulitzer Arts Foundation, St. Louis, MO
+STATUS:CONFIRMED
+SEQUENCE:0
+URL:https://shop.slso.org/8377/8379
 END:VEVENT
 END:VCALENDAR
