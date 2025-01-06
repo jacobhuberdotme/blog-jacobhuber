@@ -99,4 +99,28 @@ STATUS:CONFIRMED
 SEQUENCE:0
 URL:https://shop.slso.org/8377/8379
 END:VEVENT
+BEGIN:VEVENT
+UID:20250130T193000Z-6@slso.org
+DTSTAMP:20250101T180000Z
+DTSTART:20250131T013000Z
+DTEND:20250131T030000Z
+SUMMARY:Live at The Sheldon - No Borders
+DESCRIPTION:Music needs no passport. From klezmer and Spanish melodies to Cossack dances and military marches, these composers borrow ideas from a world of musical cultures.
+LOCATION:The Sheldon, St. Louis, MO
+STATUS:CONFIRMED
+SEQUENCE:0
+URL:https://www.metrotix.com/events/detail/slso-live-3cl
+END:VEVENT
+BEGIN:VEVENT
+UID:20250131T193000Z-7@slso.org
+DTSTAMP:20250101T180000Z
+DTSTART:20250201T013000Z
+DTEND:20250201T030000Z
+SUMMARY:Beethoven X Beyoncé
+DESCRIPTION:Experience Steve Hackman's thrilling new blend of pop/R&B’s queen and classical music’s king as Beyoncé’s iconic repertoire is seamlessly interwoven with Beethoven’s Seventh Symphony.
+LOCATION:Stifel Theatre, St. Louis, MO
+STATUS:CONFIRMED
+SEQUENCE:0
+URL:https://shop.slso.org/8457/8413
+END:VEVENT
 END:VCALENDAR

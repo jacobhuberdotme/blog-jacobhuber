@@ -12,6 +12,12 @@ const nextConfig = {
         port: '',
         pathname: '/ipfs/**',
       },
+      {
+        protocol: 'https',
+        hostname: 'slso.org',
+        port: '',
+        pathname: '/wp-content/uploads/**',
+      },
     ],
   },
   webpack: (config, { isServer }) => {
