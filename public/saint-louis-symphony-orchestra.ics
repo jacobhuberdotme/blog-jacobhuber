@@ -1,126 +1,803 @@
 BEGIN:VCALENDAR
 VERSION:2.0
 CALSCALE:GREGORIAN
+PRODID:-//Jacob Huber//Saint Louis Symphony Orchestra Events Calendar \
+ (Unofficial)//EN
 METHOD:PUBLISH
-PRODID:-//Saint Louis Symphony Orchestra//Concert Calendar//EN
+X-WR-CALNAME:Saint Louis Symphony Orchestra Concerts
+X-WR-CALDESC:An unofficial events calendar for the Saint Louis Symphony \
+ Orchestra. Compiled by Jacob Huber as a personal project. For official \
+ information, visit slso.org.
+X-PUBLISHED-TTL:PT1H
+BEGIN:VTIMEZONE
+TZID:America/Chicago
+BEGIN:STANDARD
+DTSTART:20241103T020000
+RRULE:FREQ=YEARLY;BYDAY=1SU;BYMONTH=11
+TZOFFSETFROM:-0500
+TZOFFSETTO:-0600
+TZNAME:CST
+END:STANDARD
+BEGIN:DAYLIGHT
+DTSTART:20240310T020000
+RRULE:FREQ=YEARLY;BYDAY=2SU;BYMONTH=3
+TZOFFSETFROM:-0600
+TZOFFSETTO:-0500
+TZNAME:CDT
+END:DAYLIGHT
+END:VTIMEZONE
 BEGIN:VEVENT
-UID:20250110T163000Z-1@slso.org
+UID:20250110T103000Z-1@jacobhuber.me
 DTSTAMP:20250101T180000Z
-DTSTART:20250110T163000Z
-DTEND:20250110T180000Z
+DTSTART;TZID=America/Chicago:20250110T103000
+DTEND;TZID=America/Chicago:20250110T120000
 SUMMARY:Dvořák's New World - American Sounds
-DESCRIPTION:Daniela Candillari conducts Antonín Dvořák’s beloved “New World” symphony, while star accordionist Hanzhi Wang premieres a new concerto by Nina Shekhar.
-LOCATION:Touhill Performing Arts Center, St. Louis, MO
+DESCRIPTION:Daniela Candillari conducts Antonín Dvořák’s beloved “New 
+ World” symphony, while star accordionist Hanzhi Wang premieres a new 
+ concerto by Nina Shekhar.\n\nFor tickets, visit: https://shop.slso.org/
+ 8092/8115\n\nApple Maps: https://maps.apple.com/?address=1%20Touhill%20Circle%0ASt.Louis%2063121%0AUnited%20States&auid=14116370571690537638&ll=38.713740,-90.308695&lsp=9902&q=Touhill%20Performing%20Arts%20Center
+LOCATION:Touhill Performing Arts Center
+URL:https://slso.org
 STATUS:CONFIRMED
 SEQUENCE:0
-URL:https://shop.slso.org/8092/8115
 END:VEVENT
 BEGIN:VEVENT
-UID:20250111T193000Z-2@slso.org
+UID:20250111T193000Z-2@jacobhuber.me
 DTSTAMP:20250101T180000Z
-DTSTART:20250112T013000Z
-DTEND:20250112T030000Z
+DTSTART;TZID=America/Chicago:20250111T193000
+DTEND;TZID=America/Chicago:20250111T210000
 SUMMARY:Dvořák's New World - American Sounds
-DESCRIPTION:Daniela Candillari conducts Antonín Dvořák’s beloved “New World” symphony, while star accordionist Hanzhi Wang premieres a new concerto by Nina Shekhar.
-LOCATION:Touhill Performing Arts Center, St. Louis, MO
+DESCRIPTION:Daniela Candillari conducts Antonín Dvořák’s beloved “New 
+ World” symphony, while star accordionist Hanzhi Wang premieres a new 
+ concerto by Nina Shekhar.\n\nFor tickets, visit: https://shop.slso.org/
+ 8092/8115\n\nApple Maps: https://maps.apple.com/?address=1%20Touhill%20Circle%0ASt.Louis%2063121%0AUnited%20States&auid=14116370571690537638&ll=38.713740,-90.308695&lsp=9902&q=Touhill%20Performing%20Arts%20Center
+LOCATION:Touhill Performing Arts Center
+URL:https://slso.org
 STATUS:CONFIRMED
 SEQUENCE:0
-URL:https://shop.slso.org/8092/8116
 END:VEVENT
 BEGIN:VEVENT
-UID:20250117T193000Z-3@slso.org
+UID:20250117T193000Z-3@jacobhuber.me
 DTSTAMP:20250101T180000Z
-DTSTART:20250118T013000Z
-DTEND:20250118T030000Z
+DTSTART;TZID=America/Chicago:20250117T193000
+DTEND;TZID=America/Chicago:20250117T210500
 SUMMARY:Stéphane Conducts Ravel - Sonic Impressionism
-DESCRIPTION:Music Director Stéphane Denève explores many sides of Maurice Ravel’s music, from Mother Goose to Bolero. Kirill Gerstein plays both piano concertos on one program, a formidable challenge.
-LOCATION:Touhill Performing Arts Center, St. Louis, MO
+DESCRIPTION:Music Director Stéphane Denève explores many sides of Maurice 
+ Ravel’s music, from Mother Goose to Bolero. Kirill Gerstein plays both 
+ piano concertos on one program, a formidable challenge.\n\nFor tickets, visit: 
+ https://shop.slso.org/8093/8117\n\nApple Maps: https://maps.apple.com/?address=1%20Touhill%20Circle%0ASt.Louis%2063121%0AUnited%20States&auid=14116370571690537638&ll=38.713740,-90.308695&lsp=9902&q=Touhill%20Performing%20Arts%20Center
+LOCATION:Touhill Performing Arts Center
+URL:https://slso.org
 STATUS:CONFIRMED
 SEQUENCE:0
-URL:https://shop.slso.org/8093/8117
 END:VEVENT
 BEGIN:VEVENT
-UID:20250119T150000Z-4@slso.org
+UID:20250119T150000Z-4@jacobhuber.me
 DTSTAMP:20250101T180000Z
-DTSTART:20250119T210000Z
-DTEND:20250119T223000Z
+DTSTART;TZID=America/Chicago:20250119T150000
+DTEND;TZID=America/Chicago:20250119T163500
 SUMMARY:Stéphane Conducts Ravel - Sonic Impressionism
-DESCRIPTION:Music Director Stéphane Denève explores many sides of Maurice Ravel’s music, from Mother Goose to Bolero. Kirill Gerstein plays both piano concertos on one program, a formidable challenge.
-LOCATION:Touhill Performing Arts Center, St. Louis, MO
+DESCRIPTION:Music Director Stéphane Denève explores many sides of Maurice 
+ Ravel’s music, from Mother Goose to Bolero. Kirill Gerstein plays both 
+ piano concertos on one program, a formidable challenge.\n\nFor tickets, visit: 
+ https://shop.slso.org/8093/8169\n\nApple Maps: https://maps.apple.com/?address=1%20Touhill%20Circle%0ASt.Louis%2063121%0AUnited%20States&auid=14116370571690537638&ll=38.713740,-90.308695&lsp=9902&q=Touhill%20Performing%20Arts%20Center
+LOCATION:Touhill Performing Arts Center
+URL:https://slso.org
 STATUS:CONFIRMED
 SEQUENCE:0
-URL:https://shop.slso.org/8093/8169
 END:VEVENT
 BEGIN:VEVENT
-UID:20250123T183000Z-5@slso.org
+UID:20250123T183000Z-5@jacobhuber.me
 DTSTAMP:20250101T180000Z
-DTSTART:20250124T003000Z
-DTEND:20250124T013000Z
+DTSTART;TZID=America/Chicago:20250123T183000
+DTEND;TZID=America/Chicago:20250123T193000
 SUMMARY:SLSO Community Concert: Untold Stories - LGBTQ+ Composers Through Time
-DESCRIPTION:A thought-provoking hour-long concert by musicians from the St. Louis Symphony Orchestra introduces stories of composers from the LGBTQ+ community over the last 1,000 years. This narrated performance includes music you know alongside stories you don’t about composers’ lives hidden by prejudice and legal consequences.
-LOCATION:Missouri History Museum, St. Louis, MO
+DESCRIPTION:A thought-provoking hour-long concert by musicians from the St. 
+ Louis Symphony Orchestra introduces stories of composers from the LGBTQ+ 
+ community over the last 1,000 years. This narrated performance includes music 
+ you know alongside stories you don’t about composers’ lives hidden by prejudice 
+ and legal consequences.\n\nFor tickets, visit: https://shop.slso.org/8595/8596\n\nApple Maps: 
+ https://maps.apple.com/?address=5700%20Lindell%20Blvd,%20St.%20Louis,%20MO%2063112,%20United%20States&auid=12059787694180606476&ll=38.645132,-90.285704&lsp=9902&q=Missouri%20History%20Museum
+LOCATION:Missouri History Museum
+URL:https://slso.org
 STATUS:CONFIRMED
 SEQUENCE:0
-URL:https://shop.slso.org/8595/8596
 END:VEVENT
 BEGIN:VEVENT
-UID:20250126T013000Z-6@slso.org
+UID:20250125T193000Z-6@jacobhuber.me
 DTSTAMP:20250101T180000Z
-DTSTART:20250126T013000Z
-DTEND:20250126T030000Z
+DTSTART;TZID=America/Chicago:20250125T193000
+DTEND;TZID=America/Chicago:20250125T213000
 SUMMARY:Beethoven and Mahler - Masterful Storytellers
-DESCRIPTION:Two life-affirming musical tales: Music Director Stéphane Denève explores the vast range of human emotion in Mahler’s First Symphony, and soloist James Ehnes plays Beethoven’s uplifting Violin Concerto.
-LOCATION:Stifel Theatre, St. Louis, MO
+DESCRIPTION:Two life-affirming musical tales: Music Director Stéphane Denève 
+ explores the vast range of human emotion in Mahler’s First Symphony, and 
+ soloist James Ehnes plays Beethoven’s uplifting Violin Concerto.\n\nFor tickets, visit: 
+ https://shop.slso.org/8094/8118\n\nApple Maps: 
+ https://maps.apple.com/?address=1400%20Market%20St,%20Saint%20Louis,%20MO%20%2063103,%20United%20States&auid=15633552694185841461&ll=38.627623,-90.201649&lsp=9902&q=Stifel%20Theatre
+LOCATION:Stifel Theatre
+URL:https://slso.org
 STATUS:CONFIRMED
 SEQUENCE:0
-URL:https://shop.slso.org/8094/8118
 END:VEVENT
 BEGIN:VEVENT
-UID:20250126T210000Z-7@slso.org
+UID:20250126T150000Z-7@jacobhuber.me
 DTSTAMP:20250101T180000Z
-DTSTART:20250126T210000Z
-DTEND:20250126T223000Z
+DTSTART;TZID=America/Chicago:20250126T150000
+DTEND;TZID=America/Chicago:20250126T170000
 SUMMARY:Beethoven and Mahler - Masterful Storytellers
-DESCRIPTION:Two life-affirming musical tales: Music Director Stéphane Denève explores the vast range of human emotion in Mahler’s First Symphony, and soloist James Ehnes plays Beethoven’s uplifting Violin Concerto.
-LOCATION:Stifel Theatre, St. Louis, MO
+DESCRIPTION:Two life-affirming musical tales: Music Director Stéphane Denève 
+ explores the vast range of human emotion in Mahler’s First Symphony, and 
+ soloist James Ehnes plays Beethoven’s uplifting Violin Concerto.\n\nFor tickets, visit: 
+ https://shop.slso.org/8094/8119\n\nApple Maps: 
+ https://maps.apple.com/?address=1400%20Market%20St,%20Saint%20Louis,%20MO%20%2063103,%20United%20States&auid=15633552694185841461&ll=38.627623,-90.201649&lsp=9902&q=Stifel%20Theatre
+LOCATION:Stifel Theatre
+URL:https://slso.org
 STATUS:CONFIRMED
 SEQUENCE:0
-URL:https://shop.slso.org/8094/8119
 END:VEVENT
 BEGIN:VEVENT
-UID:20250128T193000Z-5@slso.org
+UID:20250128T193000Z-8@jacobhuber.me
 DTSTAMP:20250101T180000Z
-DTSTART:20250129T013000Z
-DTEND:20250129T030000Z
+DTSTART;TZID=America/Chicago:20250128T193000
+DTEND;TZID=America/Chicago:20250128T210000
 SUMMARY:Live at the Pulitzer - Inside Out
-DESCRIPTION:An eclectic combination of works progresses from outer joy and exuberance to inner serenity and calm. Andy Akiho’s reimagining of Bach, Elizabeth Ogonek’s water-inspired dynamism, and Anthony Vine’s soothing pairings complete the journey.
-LOCATION:Pulitzer Arts Foundation, St. Louis, MO
+DESCRIPTION:An eclectic combination of works progresses from outer joy and 
+ exuberance to inner serenity and calm. Andy Akiho’s reimagining of Bach, 
+ Elizabeth Ogonek’s water-inspired dynamism, and Anthony Vine’s soothing 
+ pairings complete the journey.\n\nFor tickets, visit: 
+ https://shop.slso.org/8377/8379\n\nApple Maps: 
+ https://maps.apple.com/?address=3716%20Washington%20Blvd,%20Saint%20Louis,%20MO%20%2063108,%20United%20States&auid=11699800092548945283&ll=38.640146,-90.234398&lsp=9902&q=Pulitzer%20Arts%20Foundation
+LOCATION:Pulitzer Arts Foundation
+URL:https://slso.org
 STATUS:CONFIRMED
 SEQUENCE:0
-URL:https://shop.slso.org/8377/8379
 END:VEVENT
 BEGIN:VEVENT
-UID:20250130T193000Z-6@slso.org
+UID:20250130T193000Z-9@jacobhuber.me
 DTSTAMP:20250101T180000Z
-DTSTART:20250131T013000Z
-DTEND:20250131T030000Z
+DTSTART;TZID=America/Chicago:20250130T193000
+DTEND;TZID=America/Chicago:20250130T210000
 SUMMARY:Live at The Sheldon - No Borders
-DESCRIPTION:Music needs no passport. From klezmer and Spanish melodies to Cossack dances and military marches, these composers borrow ideas from a world of musical cultures.
-LOCATION:The Sheldon, St. Louis, MO
+DESCRIPTION:Music needs no passport. From klezmer and Spanish melodies to 
+ Cossack dances and military marches, these composers borrow ideas from a 
+ world of musical cultures.\n\nFor tickets, visit: 
+ https://www.metrotix.com/events/detail/slso-live-3cl\n\nApple Maps: 
+ https://maps.apple.com/?address=3648%20Washington%20Blvd,%20Saint%20Louis,%20MO%2063108,%20United%20States&auid=9596293522649747517&ll=38.639815,-90.233349&lsp=9902&q=The%20Sheldon
+LOCATION:The Sheldon
+URL:https://slso.org
 STATUS:CONFIRMED
 SEQUENCE:0
-URL:https://www.metrotix.com/events/detail/slso-live-3cl
 END:VEVENT
 BEGIN:VEVENT
-UID:20250131T193000Z-7@slso.org
+UID:20250131T193000Z-10@jacobhuber.me
 DTSTAMP:20250101T180000Z
-DTSTART:20250201T013000Z
-DTEND:20250201T030000Z
+DTSTART;TZID=America/Chicago:20250131T193000
+DTEND;TZID=America/Chicago:20250131T210000
 SUMMARY:Beethoven X Beyoncé
-DESCRIPTION:Experience Steve Hackman's thrilling new blend of pop/R&B’s queen and classical music’s king as Beyoncé’s iconic repertoire is seamlessly interwoven with Beethoven’s Seventh Symphony.
-LOCATION:Stifel Theatre, St. Louis, MO
+DESCRIPTION:Experience Steve Hackman's thrilling new blend of pop/R&B’s queen 
+ and classical music’s king as Beyoncé’s iconic repertoire is seamlessly 
+ interwoven with Beethoven’s Seventh Symphony.\n\nFor tickets, visit: 
+ https://shop.slso.org/8457/8413\n\nApple Maps: 
+ https://maps.apple.com/?address=1400%20Market%20St,%20Saint%20Louis,%20MO%20%2063103,%20United%20States&auid=15633552694185841461&ll=38.627623,-90.201649&lsp=9902&q=Stifel%20Theatre
+LOCATION:Stifel Theatre
+URL:https://slso.org
 STATUS:CONFIRMED
 SEQUENCE:0
-URL:https://shop.slso.org/8457/8413
+END:VEVENT
+BEGIN:VEVENT
+UID:20250207T193000Z-11@jacobhuber.me
+DTSTAMP:20250101T180000Z
+DTSTART;TZID=America/Chicago:20250207T193000
+DTEND;TZID=America/Chicago:20250207T213000
+SUMMARY:BLACKSTAR SYMPHONY - The Music of David Bowie
+DESCRIPTION:Immerse yourself in the sonic tapestry of David Bowie’s final, 
+ critically acclaimed album, Blackstar, reimagined for a 65-piece orchestra. 
+ The evening culminates in a celebration of Bowie’s iconic song catalog, 
+ featuring touchstones like “Space Oddity,” “Life on Mars,” and “Heroes.”\n\nFor tickets, visit: 
+ https://shop.slso.org/8657/8658\n\nApple Maps: 
+ https://maps.apple.com/?address=1400%20Market%20St,%20Saint%20Louis,%20MO%20%2063103,%20United%20States&auid=15633552694185841461&ll=38.627623,-90.201649&lsp=9902&q=Stifel%20Theatre
+LOCATION:Stifel Theatre
+URL:https://slso.org
+STATUS:CONFIRMED
+SEQUENCE:0
+END:VEVENT
+BEGIN:VEVENT
+UID:20250214T193000Z-12@jacobhuber.me
+DTSTAMP:20250101T180000Z
+DTSTART;TZID=America/Chicago:20250214T193000
+DTEND;TZID=America/Chicago:20250214T211000
+SUMMARY:Tchaikovsky's Romeo and Juliet - The Romantics
+DESCRIPTION:Music Director Stéphane Denève sends a valentine from the SLSO. 
+ Music by Tchaikovsky and a world premiere by Anna Clyne join Rachmaninoff’s 
+ Second Piano Concerto, played by Nikolai Lugansky.\n\nFor tickets, visit: 
+ https://shop.slso.org/8095/8120\n\nApple Maps: 
+ https://maps.apple.com/?address=1%20Touhill%20Circle%0ASt.Louis%2063121%0AUnited%20States&auid=14116370571690537638&ll=38.713740,-90.308695&lsp=9902&q=Touhill%20Performing%20Arts%20Center
+LOCATION:Touhill Performing Arts Center
+URL:https://slso.org
+STATUS:CONFIRMED
+SEQUENCE:0
+END:VEVENT
+BEGIN:VEVENT
+UID:20250215T193000Z-13@jacobhuber.me
+DTSTAMP:20250101T180000Z
+DTSTART;TZID=America/Chicago:20250215T193000
+DTEND;TZID=America/Chicago:20250215T211000
+SUMMARY:Tchaikovsky's Romeo and Juliet - The Romantics
+DESCRIPTION:Music Director Stéphane Denève sends a valentine from the SLSO. 
+ Music by Tchaikovsky and a world premiere by Anna Clyne join Rachmaninoff’s 
+ Second Piano Concerto, played by Nikolai Lugansky.\n\nFor tickets, visit: 
+ https://shop.slso.org/8095/8121\n\nApple Maps: 
+ https://maps.apple.com/?address=1%20Touhill%20Circle%0ASt.Louis%2063121%0AUnited%20States&auid=14116370571690537638&ll=38.713740,-90.308695&lsp=9902&q=Touhill%20Performing%20Arts%20Center
+LOCATION:Touhill Performing Arts Center
+URL:https://slso.org
+STATUS:CONFIRMED
+SEQUENCE:0
+END:VEVENT
+BEGIN:VEVENT
+UID:20250216T150000Z-14@jacobhuber.me
+DTSTAMP:20250101T180000Z
+DTSTART;TZID=America/Chicago:20250216T150000
+DTEND;TZID=America/Chicago:20250216T163000
+SUMMARY:St. Louis Symphony Youth Orchestra - Side-by-Side with the SLSO
+DESCRIPTION:Fantasy meets the concert hall in the second St. Louis Symphony 
+ Youth Orchestra concert of the season. The joint YO and SLSO orchestra brings 
+ art to life in Mussorgsky’s Pictures at an Exhibition, journeys to the world 
+ of Harry Potter, and conjures dancing broomsticks.\n\nFor tickets, visit: 
+ https://shop.slso.org/8492/8514\n\nApple Maps: 
+ https://maps.apple.com/?address=1%20Touhill%20Circle%0ASt.Louis%2063121%0AUnited%20States&auid=14116370571690537638&ll=38.713740,-90.308695&lsp=9902&q=Touhill%20Performing%20Arts%20Center
+LOCATION:Touhill Performing Arts Center
+URL:https://slso.org
+STATUS:CONFIRMED
+SEQUENCE:0
+END:VEVENT
+BEGIN:VEVENT
+UID:20250221T103000Z-15@jacobhuber.me
+DTSTAMP:20250101T180000Z
+DTSTART;TZID=America/Chicago:20250221T103000
+DTEND;TZID=America/Chicago:20250221T121500
+SUMMARY:Brahms' First Symphony - Labor of Love
+DESCRIPTION:Conductor David Afkham makes his SLSO debut in Brahms’ First 
+ Symphony, a journey from darkness to light. Pianist Saleem Ashkar plays 
+ Mozart’s dramatic Piano Concerto No. 24.\n\nFor tickets, visit: 
+ https://shop.slso.org/8096/8122\n\nApple Maps: 
+ https://maps.apple.com/?address=1%20Touhill%20Circle%0ASt.Louis%2063121%0AUnited%20States&auid=14116370571690537638&ll=38.713740,-90.308695&lsp=9902&q=Touhill%20Performing%20Arts%20Center
+LOCATION:Touhill Performing Arts Center
+URL:https://slso.org
+STATUS:CONFIRMED
+SEQUENCE:0
+END:VEVENT
+BEGIN:VEVENT
+UID:20250223T150000Z-16@jacobhuber.me
+DTSTAMP:20250101T180000Z
+DTSTART;TZID=America/Chicago:20250223T150000
+DTEND;TZID=America/Chicago:20250223T164500
+SUMMARY:Brahms' First Symphony - Labor of Love
+DESCRIPTION:Conductor David Afkham makes his SLSO debut in Brahms’ First 
+ Symphony, a journey from darkness to light. Pianist Saleem Ashkar plays 
+ Mozart’s dramatic Piano Concerto No. 24.\n\nFor tickets, visit: 
+ https://shop.slso.org/8096/8123\n\nApple Maps: 
+ https://maps.apple.com/?address=1%20Touhill%20Circle%0ASt.Louis%2063121%0AUnited%20States&auid=14116370571690537638&ll=38.713740,-90.308695&lsp=9902&q=Touhill%20Performing%20Arts%20Center
+LOCATION:Touhill Performing Arts Center
+URL:https://slso.org
+STATUS:CONFIRMED
+SEQUENCE:0
+END:VEVENT
+BEGIN:VEVENT
+UID:20250222T193000Z-17@jacobhuber.me
+DTSTAMP:20250101T180000Z
+DTSTART;TZID=America/Chicago:20250222T193000
+DTEND;TZID=America/Chicago:20250222T210000
+SUMMARY:Double Play featuring Adam Wainwright
+DESCRIPTION:Celebrate St. Louis’ love of music and baseball with Americana 
+ classics, a special “Casey at the Bat” narration by Joe Buck, and performances 
+ by Cardinals’ organist Dwayne Hilton and former Cardinals All-Star Adam Wainwright.\n\nFor tickets, visit: 
+ https://shop.slso.org/8452/8453\n\nApple Maps: 
+ https://maps.apple.com/?address=1400%20Market%20St,%20Saint%20Louis,%20MO%20%2063103,%20United%20States&auid=15633552694185841461&ll=38.627623,-90.201649&lsp=9902&q=Stifel%20Theatre
+LOCATION:Stifel Theatre
+URL:https://slso.org
+STATUS:CONFIRMED
+SEQUENCE:0
+END:VEVENT
+BEGIN:VEVENT
+UID:20250228T193000Z-18@jacobhuber.me
+DTSTAMP:20250101T180000Z
+DTSTART;TZID=America/Chicago:20250228T193000
+DTEND;TZID=America/Chicago:20250228T210000
+SUMMARY:Lift Every Voice
+DESCRIPTION:Grammy Award-winning vocalist Donald Lawrence joins your St. Louis 
+ Symphony Orchestra and the IN UNISON Chorus for this joyful celebration of 
+ Black History Month.\n\nFor tickets, visit: 
+ https://shop.slso.org/8201/8220\n\nApple Maps: 
+ https://maps.apple.com/?address=1400%20Market%20St,%20Saint%20Louis,%20MO%20%2063103,%20United%20States&auid=15633552694185841461&ll=38.627623,-90.201649&lsp=9902&q=Stifel%20Theatre
+LOCATION:Stifel Theatre
+URL:https://slso.org
+STATUS:CONFIRMED
+SEQUENCE:0
+END:VEVENT
+BEGIN:VEVENT
+UID:20250301T193000Z-19@jacobhuber.me
+DTSTAMP:20250101T180000Z
+DTSTART;TZID=America/Chicago:20250301T193000
+DTEND;TZID=America/Chicago:20250301T211500
+SUMMARY:Beethoven's Ninth - Ode to Joy
+DESCRIPTION:Gemma New returns with Beethoven’s Ninth Symphony, a powerful call 
+ for hope in dark times. The orchestra is joined by the SLSO Chorus and four 
+ world-class soloists.\n\nFor tickets, visit: 
+ https://shop.slso.org/8097/8124\n\nApple Maps: 
+ https://maps.apple.com/?address=1400%20Market%20St,%20Saint%20Louis,%20MO%20%2063103,%20United%20States&auid=15633552694185841461&ll=38.627623,-90.201649&lsp=9902&q=Stifel%20Theatre
+LOCATION:Stifel Theatre
+URL:https://slso.org
+STATUS:CONFIRMED
+SEQUENCE:0
+END:VEVENT
+BEGIN:VEVENT
+UID:20250302T150000Z-20@jacobhuber.me
+DTSTAMP:20250101T180000Z
+DTSTART;TZID=America/Chicago:20250302T150000
+DTEND;TZID=America/Chicago:20250302T164500
+SUMMARY:Beethoven's Ninth - Ode to Joy
+DESCRIPTION:Gemma New returns with Beethoven’s Ninth Symphony, a powerful call 
+ for hope in dark times. The orchestra is joined by the SLSO Chorus and four 
+ world-class soloists.\n\nFor tickets, visit: 
+ https://shop.slso.org/8097/8125\n\nApple Maps: 
+ https://maps.apple.com/?address=1400%20Market%20St,%20Saint%20Louis,%20MO%20%2063103,%20United%20States&auid=15633552694185841461&ll=38.627623,-90.201649&lsp=9902&q=Stifel%20Theatre
+LOCATION:Stifel Theatre
+URL:https://slso.org
+STATUS:CONFIRMED
+SEQUENCE:0
+END:VEVENT
+BEGIN:VEVENT
+UID:20250306T193000Z-21@jacobhuber.me
+DTSTAMP:20250101T180000Z
+DTSTART;TZID=America/Chicago:20250306T193000
+DTEND;TZID=America/Chicago:20250306T210000
+SUMMARY:Live at The Sheldon - Echoes of Home
+DESCRIPTION:Memories and traditions echo throughout this program, revisited and 
+ revised as Shelley Washington evokes her Midwestern youth, we hear Vaughan 
+ Williams’ memories of bird sounds, and experience Dvořák’s Bohemian roots—“roots” 
+ music enriched with new beauty.\n\nFor tickets, visit: 
+ https://www.metrotix.com/events/detail/slso-live-4cl\n\nApple Maps: 
+ https://maps.apple.com/?address=3648%20Washington%20Blvd,%20Saint%20Louis,%20MO%2063108,%20United%20States&auid=9596293522649747517&ll=38.639815,-90.233349&lsp=9902&q=The%20Sheldon
+LOCATION:The Sheldon
+URL:https://slso.org
+STATUS:CONFIRMED
+SEQUENCE:0
+END:VEVENT
+BEGIN:VEVENT
+UID:20250308T190000Z-22@jacobhuber.me
+DTSTAMP:20250101T180000Z
+DTSTART;TZID=America/Chicago:20250308T190000
+DTEND;TZID=America/Chicago:20250308T213000
+SUMMARY:Casino Royale in Concert
+DESCRIPTION:Immerse yourself in the world of James Bond with Daniel Craig on the 
+ big screen and the St. Louis Symphony Orchestra performing David Arnold's 
+ gripping score live.\n\nFor tickets, visit: 
+ https://shop.slso.org/8203/8208\n\nApple Maps: 
+ https://maps.apple.com/?address=1400%20Market%20St,%20Saint%20Louis,%20MO%20%2063103,%20United%20States&auid=15633552694185841461&ll=38.627623,-90.201649&lsp=9902&q=Stifel%20Theatre
+LOCATION:Stifel Theatre
+URL:https://slso.org
+STATUS:CONFIRMED
+SEQUENCE:0
+END:VEVENT
+BEGIN:VEVENT
+UID:20250309T140000Z-23@jacobhuber.me
+DTSTAMP:20250101T180000Z
+DTSTART;TZID=America/Chicago:20250309T140000
+DTEND;TZID=America/Chicago:20250309T163000
+SUMMARY:Casino Royale in Concert
+DESCRIPTION:Immerse yourself in the world of James Bond with Daniel Craig on the 
+ big screen and the St. Louis Symphony Orchestra performing David Arnold's 
+ gripping score live.\n\nFor tickets, visit: 
+ https://shop.slso.org/8203/8209\n\nApple Maps: 
+ https://maps.apple.com/?address=1400%20Market%20St,%20Saint%20Louis,%20MO%20%2063103,%20United%20States&auid=15633552694185841461&ll=38.627623,-90.201649&lsp=9902&q=Stifel%20Theatre
+LOCATION:Stifel Theatre
+URL:https://slso.org
+STATUS:CONFIRMED
+SEQUENCE:0
+END:VEVENT
+BEGIN:VEVENT
+UID:20250314T193000Z-24@jacobhuber.me
+DTSTAMP:20250101T180000Z
+DTSTART;TZID=America/Chicago:20250314T193000
+DTEND;TZID=America/Chicago:20250314T210500
+SUMMARY:Lintu Conducts Schumann - Nordic Love Letter
+DESCRIPTION:Conductor Hannu Lintu brings radiant warmth to Robert Schumann’s 
+ Second Symphony, and acclaimed violist Lawrence Power plays Magnus Lindberg’s 
+ thrilling new Viola Concerto.\n\nFor tickets, visit: 
+ https://shop.slso.org/8098/8126\n\nApple Maps: 
+ https://maps.apple.com/?address=1%20Touhill%20Circle%0ASt.Louis%2063121%0AUnited%20States&auid=14116370571690537638&ll=38.713740,-90.308695&lsp=9902&q=Touhill%20Performing%20Arts%20Center
+LOCATION:Touhill Performing Arts Center
+URL:https://slso.org
+STATUS:CONFIRMED
+SEQUENCE:0
+END:VEVENT
+BEGIN:VEVENT
+UID:20250316T150000Z-25@jacobhuber.me
+DTSTAMP:20250101T180000Z
+DTSTART;TZID=America/Chicago:20250316T150000
+DTEND;TZID=America/Chicago:20250316T163500
+SUMMARY:Lintu Conducts Schumann - Nordic Love Letter
+DESCRIPTION:Conductor Hannu Lintu brings radiant warmth to Robert Schumann’s 
+ Second Symphony, and acclaimed violist Lawrence Power plays Magnus Lindberg’s 
+ thrilling new Viola Concerto.\n\nFor tickets, visit: 
+ https://shop.slso.org/8098/8127\n\nApple Maps: 
+ https://maps.apple.com/?address=1%20Touhill%20Circle%0ASt.Louis%2063121%0AUnited%20States&auid=14116370571690537638&ll=38.713740,-90.308695&lsp=9902&q=Touhill%20Performing%20Arts%20Center
+LOCATION:Touhill Performing Arts Center
+URL:https://slso.org
+STATUS:CONFIRMED
+SEQUENCE:0
+END:VEVENT
+BEGIN:VEVENT
+UID:20250321T103000Z-26@jacobhuber.me
+DTSTAMP:20250101T180000Z
+DTSTART;TZID=America/Chicago:20250321T103000
+DTEND;TZID=America/Chicago:20250321T115500
+SUMMARY:Bernstein and Williams - Cinematic Visions
+DESCRIPTION:Stéphane Denève takes us on a cinematic journey of epic scale and 
+ scope, with evocative music by John Williams, Guillaume Connesson, Adolphus 
+ Hailstork, and Leonard Bernstein.\n\nFor tickets, visit: 
+ https://shop.slso.org/8099/8128\n\nApple Maps: 
+ https://maps.apple.com/?address=1%20Touhill%20Circle%0ASt.Louis%2063121%0AUnited%20States&auid=14116370571690537638&ll=38.713740,-90.308695&lsp=9902&q=Touhill%20Performing%20Arts%20Center
+LOCATION:Touhill Performing Arts Center
+URL:https://slso.org
+STATUS:CONFIRMED
+SEQUENCE:0
+END:VEVENT
+BEGIN:VEVENT
+UID:20250322T193000Z-27@jacobhuber.me
+DTSTAMP:20250101T180000Z
+DTSTART;TZID=America/Chicago:20250322T193000
+DTEND;TZID=America/Chicago:20250322T205500
+SUMMARY:Bernstein and Williams - Cinematic Visions
+DESCRIPTION:Stéphane Denève takes us on a cinematic journey of epic scale and 
+ scope, with evocative music by John Williams, Guillaume Connesson, Adolphus 
+ Hailstork, and Leonard Bernstein.\n\nFor tickets, visit: 
+ https://shop.slso.org/8099/8129\n\nApple Maps: 
+ https://maps.apple.com/?address=1%20Touhill%20Circle%0ASt.Louis%2063121%0AUnited%20States&auid=14116370571690537638&ll=38.713740,-90.308695&lsp=9902&q=Touhill%20Performing%20Arts%20Center
+LOCATION:Touhill Performing Arts Center
+URL:https://slso.org
+STATUS:CONFIRMED
+SEQUENCE:0
+END:VEVENT
+BEGIN:VEVENT
+UID:20250323T150000Z-28@jacobhuber.me
+DTSTAMP:20250101T180000Z
+DTSTART;TZID=America/Chicago:20250323T150000
+DTEND;TZID=America/Chicago:20250323T154500
+SUMMARY:Concerts for Kids - Mo Willems' Because
+DESCRIPTION:Embark on a powerful journey with your SLSO and Metro Theater 
+ Company as Mo Willems' bestselling tale of chance, discovery, persistence, and 
+ magic comes to life. Amber Ren's illustrations and Jessie Montgomery's music 
+ enhance Willems' story, reminding us of the profound impact of small moments.\n\nFor tickets, visit: 
+ https://shop.slso.org/8405/8411\n\nApple Maps: 
+ https://maps.apple.com/?address=1%20Touhill%20Circle%0ASt.Louis%2063121%0AUnited%20States&auid=14116370571690537638&ll=38.713740,-90.308695&lsp=9902&q=Touhill%20Performing%20Arts%20Center
+LOCATION:Touhill Performing Arts Center
+URL:https://slso.org
+STATUS:CONFIRMED
+SEQUENCE:0
+END:VEVENT
+BEGIN:VEVENT
+UID:20250328T193000Z-29@jacobhuber.me
+DTSTAMP:20250101T180000Z
+DTSTART;TZID=America/Chicago:20250328T193000
+DTEND;TZID=America/Chicago:20250328T205500
+SUMMARY:Debussy and Liszt - Lyrical Daydreams
+DESCRIPTION:Music from poetry and the poetry of music. Tenor Michael Spyres 
+ brings a chameleon-like voice to cycles by Mahler and Britten. Stéphane Denève 
+ conducts atmospheric music by Debussy and Liszt.\n\nFor tickets, visit: 
+ https://shop.slso.org/8100/8130\n\nApple Maps: 
+ https://maps.apple.com/?address=1%20Touhill%20Circle%0ASt.Louis%2063121%0AUnited%20States&auid=14116370571690537638&ll=38.713740,-90.308695&lsp=9902&q=Touhill%20Performing%20Arts%20Center
+LOCATION:Touhill Performing Arts Center
+URL:https://slso.org
+STATUS:CONFIRMED
+SEQUENCE:0
+END:VEVENT
+BEGIN:VEVENT
+UID:20250330T150000Z-30@jacobhuber.me
+DTSTAMP:20250101T180000Z
+DTSTART;TZID=America/Chicago:20250330T150000
+DTEND;TZID=America/Chicago:20250330T162500
+SUMMARY:Debussy and Liszt - Lyrical Daydreams
+DESCRIPTION:Music from poetry and the poetry of music. Tenor Michael Spyres 
+ brings a chameleon-like voice to cycles by Mahler and Britten. Stéphane Denève 
+ conducts atmospheric music by Debussy and Liszt.\n\nFor tickets, visit: 
+ https://shop.slso.org/8100/8131\n\nApple Maps: 
+ https://maps.apple.com/?address=1%20Touhill%20Circle%0ASt.Louis%2063121%0AUnited%20States&auid=14116370571690537638&ll=38.713740,-90.308695&lsp=9902&q=Touhill%20Performing%20Arts%20Center
+LOCATION:Touhill Performing Arts Center
+URL:https://slso.org
+STATUS:CONFIRMED
+SEQUENCE:0
+END:VEVENT
+BEGIN:VEVENT
+UID:20250329T120000Z-31@jacobhuber.me
+DTSTAMP:20250101T180000Z
+DTSTART;TZID=America/Chicago:20250329T120000
+DTEND;TZID=America/Chicago:20250329T123000
+SUMMARY:Concerts for Kids - The Tortoise and the Hare
+DESCRIPTION:Get ready for a race with the fast hare and determined tortoise! 
+ Set to Beethoven, Rossini, Elgar, and Dvořák, the SLSO musicians accompany 
+ children as they bring this classic tale to life. Adapted from Alison Ritchie's 
+ book, illustrated by Nahta Nój.\n\nFor tickets, visit: 
+ https://www.metrotix.com/events/detail/the-tortoise-and-the-hare\n\nApple Maps: 
+ https://maps.apple.com/?address=3648%20Washington%20Blvd,%20Saint%20Louis,%20MO%2063108,%20United%20States&auid=9596293522649747517&ll=38.639815,-90.233349&lsp=9902&q=The%20Sheldon
+LOCATION:The Sheldon
+URL:https://slso.org
+STATUS:CONFIRMED
+SEQUENCE:0
+END:VEVENT
+BEGIN:VEVENT
+UID:20250329T153000Z-32@jacobhuber.me
+DTSTAMP:20250101T180000Z
+DTSTART;TZID=America/Chicago:20250329T153000
+DTEND;TZID=America/Chicago:20250329T160000
+SUMMARY:Concerts for Kids - The Tortoise and the Hare
+DESCRIPTION:Get ready for a race with the fast hare and determined tortoise! 
+ Set to Beethoven, Rossini, Elgar, and Dvořák, the SLSO musicians accompany 
+ children as they bring this classic tale to life. Adapted from Alison Ritchie's 
+ book, illustrated by Nahta Nój.\n\nFor tickets, visit: 
+ https://www.metrotix.com/events/detail/the-tortoise-and-the-hare\n\nApple Maps: 
+ https://maps.apple.com/?address=3648%20Washington%20Blvd,%20Saint%20Louis,%20MO%2063108,%20United%20States&auid=9596293522649747517&ll=38.639815,-90.233349&lsp=9902&q=The%20Sheldon
+LOCATION:The Sheldon
+URL:https://slso.org
+STATUS:CONFIRMED
+SEQUENCE:0
+END:VEVENT
+BEGIN:VEVENT
+UID:20250404T190000Z-33@jacobhuber.me
+DTSTAMP:20250101T180000Z
+DTSTART;TZID=America/Chicago:20250404T190000
+DTEND;TZID=America/Chicago:20250404T210000
+SUMMARY:Batman in Concert
+DESCRIPTION:Experience Batman in Concert with the St. Louis Symphony Orchestra! 
+ Celebrate Tim Burton’s iconic Batman, accompanied by Danny Elfman’s exhilarating 
+ score. Immerse yourself in Gotham City's darkness and witness the power of music.\n\nFor tickets, visit: 
+ https://shop.slso.org/8390/8395\n\nApple Maps: 
+ https://maps.apple.com/?address=1400%20Market%20St,%20Saint%20Louis,%20MO%20%2063103,%20United%20States&auid=15633552694185841461&ll=38.627623,-90.201649&lsp=9902&q=Stifel%20Theatre
+LOCATION:Stifel Theatre
+URL:https://slso.org
+STATUS:CONFIRMED
+SEQUENCE:0
+END:VEVENT
+BEGIN:VEVENT
+UID:20250406T140000Z-34@jacobhuber.me
+DTSTAMP:20250101T180000Z
+DTSTART;TZID=America/Chicago:20250406T140000
+DTEND;TZID=America/Chicago:20250406T160000
+SUMMARY:Batman in Concert
+DESCRIPTION:Experience Batman in Concert with the St. Louis Symphony Orchestra! 
+ Celebrate Tim Burton’s iconic Batman, accompanied by Danny Elfman’s exhilarating 
+ score. Immerse yourself in Gotham City's darkness and witness the power of music.\n\nFor tickets, visit: 
+ https://shop.slso.org/8390/8396\n\nApple Maps: 
+ https://maps.apple.com/?address=1400%20Market%20St,%20Saint%20Louis,%20MO%20%2063103,%20United%20States&auid=15633552694185841461&ll=38.627623,-90.201649&lsp=9902&q=Stifel%20Theatre
+LOCATION:Stifel Theatre
+URL:https://slso.org
+STATUS:CONFIRMED
+SEQUENCE:0
+END:VEVENT
+BEGIN:VEVENT
+UID:20250408T193000Z-35@jacobhuber.me
+DTSTAMP:20250101T180000Z
+DTSTART;TZID=America/Chicago:20250408T193000
+DTEND;TZID=America/Chicago:20250408T210000
+SUMMARY:Live at the Pulitzer - Come Closer
+DESCRIPTION:SLSO soloists weave a tapestry of interconnectedness in the final 
+ Live at the Pulitzer concert of the season, musing on lullabies, engaging in 
+ trance-like dance rhythms, and easing into quiet contemplation.\n\nFor tickets, visit: 
+ https://shop.slso.org/8378/8380\n\nApple Maps: 
+ https://maps.apple.com/?address=3716%20Washington%20Blvd,%20Saint%20Louis,%20MO%20%2063108,%20United%20States&auid=11699800092548945283&ll=38.640146,-90.234398&lsp=9902&q=Pulitzer%20Arts%20Foundation
+LOCATION:Pulitzer Arts Foundation
+URL:https://slso.org
+STATUS:CONFIRMED
+SEQUENCE:0
+END:VEVENT
+BEGIN:VEVENT
+UID:20250411T103000Z-36@jacobhuber.me
+DTSTAMP:20250101T180000Z
+DTSTART;TZID=America/Chicago:20250411T103000
+DTEND;TZID=America/Chicago:20250411T122000
+SUMMARY:Brahms' Violin Concerto - Friendship and Solace
+DESCRIPTION:John Storgårds conducts Sibelius’s Lemminkäinen Suite, celebrating 
+ the journeys of a Finnish folk hero. Violinist Christian Tetzlaff finds comfort 
+ and companionship in Brahms’ Violin Concerto.\n\nFor tickets, visit: 
+ https://shop.slso.org/8101/8132\n\nApple Maps: 
+ https://maps.apple.com/?address=1%20Touhill%20Circle%0ASt.Louis%2063121%0AUnited%20States&auid=14116370571690537638&ll=38.713740,-90.308695&lsp=9902&q=Touhill%20Performing%20Arts%20Center
+LOCATION:Touhill Performing Arts Center
+URL:https://slso.org
+STATUS:CONFIRMED
+SEQUENCE:0
+END:VEVENT
+BEGIN:VEVENT
+UID:20250412T193000Z-37@jacobhuber.me
+DTSTAMP:20250101T180000Z
+DTSTART;TZID=America/Chicago:20250412T193000
+DTEND;TZID=America/Chicago:20250412T212000
+SUMMARY:Brahms' Violin Concerto - Friendship and Solace
+DESCRIPTION:John Storgårds conducts Sibelius’s Lemminkäinen Suite, celebrating 
+ the journeys of a Finnish folk hero. Violinist Christian Tetzlaff finds comfort 
+ and companionship in Brahms’ Violin Concerto.\n\nFor tickets, visit: 
+ https://shop.slso.org/8101/8133\n\nApple Maps: 
+ https://maps.apple.com/?address=1%20Touhill%20Circle%0ASt.Louis%2063121%0AUnited%20States&auid=14116370571690537638&ll=38.713740,-90.308695&lsp=9902&q=Touhill%20Performing%20Arts%20Center
+LOCATION:Touhill Performing Arts Center
+URL:https://slso.org
+STATUS:CONFIRMED
+SEQUENCE:0
+END:VEVENT
+BEGIN:VEVENT
+UID:20250413T150000Z-38@jacobhuber.me
+DTSTAMP:20250101T180000Z
+DTSTART;TZID=America/Chicago:20250413T150000
+DTEND;TZID=America/Chicago:20250413T165000
+SUMMARY:Brahms' Violin Concerto - Friendship and Solace
+DESCRIPTION:John Storgårds conducts Sibelius’s Lemminkäinen Suite, celebrating 
+ the journeys of a Finnish folk hero. Violinist Christian Tetzlaff finds comfort 
+ and companionship in Brahms’ Violin Concerto.\n\nFor tickets, visit: 
+ https://shop.slso.org/8101/8134\n\nApple Maps: 
+ https://maps.apple.com/?address=1%20Touhill%20Circle%0ASt.Louis%2063121%0AUnited%20States&auid=14116370571690537638&ll=38.713740,-90.308695&lsp=9902&q=Touhill%20Performing%20Arts%20Center
+LOCATION:Touhill Performing Arts Center
+URL:https://slso.org
+STATUS:CONFIRMED
+SEQUENCE:0
+END:VEVENT
+BEGIN:VEVENT
+UID:20250424T193000Z-39@jacobhuber.me
+DTSTAMP:20250101T180000Z
+DTSTART;TZID=America/Chicago:20250424T193000
+DTEND;TZID=America/Chicago:20250424T210000
+SUMMARY:Live at The Sheldon - Wind and Water
+DESCRIPTION:Expect sea winds and bubbling streams as wind instruments and piano 
+ bring the fluidity of air and water to life in this lyrical program inspired by 
+ French Impressionism.\n\nFor tickets, visit: 
+ https://www.metrotix.com/events/detail/slso-live-5cl\n\nApple Maps: 
+ https://maps.apple.com/?address=3648%20Washington%20Blvd,%20Saint%20Louis,%20MO%2063108,%20United%20States&auid=9596293522649747517&ll=38.639815,-90.233349&lsp=9902&q=The%20Sheldon
+LOCATION:The Sheldon
+URL:https://slso.org
+STATUS:CONFIRMED
+SEQUENCE:0
+END:VEVENT
+BEGIN:VEVENT
+UID:20250426T193000Z-40@jacobhuber.me
+DTSTAMP:20250101T180000Z
+DTSTART;TZID=America/Chicago:20250426T193000
+DTEND;TZID=America/Chicago:20250426T211000
+SUMMARY:Dvořák's Cello Concerto - Radiant Warmth
+DESCRIPTION:Andrei Ioniță plays Dvořák’s Cello Concerto, a work he calls “the 
+ greatest cello concerto.” Ruth Reinhardt conducts powerful, defiant music by 
+ Hindemith.\n\nFor tickets, visit: 
+ https://shop.slso.org/8137/8138\n\nApple Maps: 
+ https://maps.apple.com/?address=1400%20Market%20St,%20Saint%20Louis,%20MO%20%2063103,%20United%20States&auid=15633552694185841461&ll=38.627623,-90.201649&lsp=9902&q=Stifel%20Theatre
+LOCATION:Stifel Theatre
+URL:https://slso.org
+STATUS:CONFIRMED
+SEQUENCE:0
+END:VEVENT
+BEGIN:VEVENT
+UID:20250427T150000Z-41@jacobhuber.me
+DTSTAMP:20250101T180000Z
+DTSTART;TZID=America/Chicago:20250427T150000
+DTEND;TZID=America/Chicago:20250427T164000
+SUMMARY:Dvořák's Cello Concerto - Radiant Warmth
+DESCRIPTION:Andrei Ioniță plays Dvořák’s Cello Concerto, a work he calls “the 
+ greatest cello concerto.” Ruth Reinhardt conducts powerful, defiant music by 
+ Hindemith.\n\nFor tickets, visit: 
+ https://shop.slso.org/8137/8139\n\nApple Maps: 
+ https://maps.apple.com/?address=1400%20Market%20St,%20Saint%20Louis,%20MO%20%2063103,%20United%20States&auid=15633552694185841461&ll=38.627623,-90.201649&lsp=9902&q=Stifel%20Theatre
+LOCATION:Stifel Theatre
+URL:https://slso.org
+STATUS:CONFIRMED
+SEQUENCE:0
+END:VEVENT
+BEGIN:VEVENT
+UID:20250503T193000Z-42@jacobhuber.me
+DTSTAMP:20250101T180000Z
+DTSTART;TZID=America/Chicago:20250503T193000
+DTEND;TZID=America/Chicago:20250503T210500
+SUMMARY:Peer Gynt - An Epic Tale
+DESCRIPTION:Director Bill Barclay brings his acclaimed adaptation of Grieg’s 
+ Peer Gynt to the SLSO. This fully-staged performance features actors, puppets, 
+ and the occasional bawdy joke.\n\nFor tickets, visit: 
+ https://shop.slso.org/8140/8141\n\nApple Maps: 
+ https://maps.apple.com/?address=1400%20Market%20St,%20Saint%20Louis,%20MO%20%2063103,%20United%20States&auid=15633552694185841461&ll=38.627623,-90.201649&lsp=9902&q=Stifel%20Theatre
+LOCATION:Stifel Theatre
+URL:https://slso.org
+STATUS:CONFIRMED
+SEQUENCE:0
+END:VEVENT
+BEGIN:VEVENT
+UID:20250504T150000Z-43@jacobhuber.me
+DTSTAMP:20250101T180000Z
+DTSTART;TZID=America/Chicago:20250504T150000
+DTEND;TZID=America/Chicago:20250504T163500
+SUMMARY:Peer Gynt - An Epic Tale
+DESCRIPTION:Director Bill Barclay brings his acclaimed adaptation of Grieg’s 
+ Peer Gynt to the SLSO. This fully-staged performance features actors, puppets, 
+ and the occasional bawdy joke.\n\nFor tickets, visit: 
+ https://shop.slso.org/8140/8142\n\nApple Maps: 
+ https://maps.apple.com/?address=1400%20Market%20St,%20Saint%20Louis,%20MO%20%2063103,%20United%20States&auid=15633552694185841461&ll=38.627623,-90.201649&lsp=9902&q=Stifel%20Theatre
+LOCATION:Stifel Theatre
+URL:https://slso.org
+STATUS:CONFIRMED
+SEQUENCE:0
+END:VEVENT
+BEGIN:VEVENT
+UID:20250508T193000Z-44@jacobhuber.me
+DTSTAMP:20250101T180000Z
+DTSTART;TZID=America/Chicago:20250508T193000
+DTEND;TZID=America/Chicago:20250508T210000
+SUMMARY:A Celebration of Hip Hop - Featuring DMC and the Sugarhill Gang
+DESCRIPTION:Throw your hands in the air as hip-hop legends DMC and the Sugarhill 
+ Gang join the SLSO on stage to share some of their greatest hits, backed by 
+ lush, orchestral melodies.\n\nFor tickets, visit: 
+ https://shop.slso.org/8714/8715\n\nApple Maps: 
+ https://maps.apple.com/?address=1400%20Market%20St,%20Saint%20Louis,%20MO%20%2063103,%20United%20States&auid=15633552694185841461&ll=38.627623,-90.201649&lsp=9902&q=Stifel%20Theatre
+LOCATION:Stifel Theatre
+URL:https://slso.org
+STATUS:CONFIRMED
+SEQUENCE:0
+END:VEVENT
+BEGIN:VEVENT
+UID:20250509T190000Z-45@jacobhuber.me
+DTSTAMP:20250101T180000Z
+DTSTART;TZID=America/Chicago:20250509T190000
+DTEND;TZID=America/Chicago:20250509T203000
+SUMMARY:Disney Princess: The Concert
+DESCRIPTION:Immerse yourself in the magical world of Disney Princesses at Disney 
+ Princess: The Concert featuring Broadway and TV stars performing timeless 
+ melodies live with your St. Louis Symphony Orchestra.\n\nFor tickets, visit: 
+ https://shop.slso.org/8205/8210\n\nApple Maps: 
+ https://maps.apple.com/?address=1400%20Market%20St,%20Saint%20Louis,%20MO%20%2063103,%20United%20States&auid=15633552694185841461&ll=38.627623,-90.201649&lsp=9902&q=Stifel%20Theatre
+LOCATION:Stifel Theatre
+URL:https://slso.org
+STATUS:CONFIRMED
+SEQUENCE:0
+END:VEVENT
+BEGIN:VEVENT
+UID:20250510T140000Z-46@jacobhuber.me
+DTSTAMP:20250101T180000Z
+DTSTART;TZID=America/Chicago:20250510T140000
+DTEND;TZID=America/Chicago:20250510T153000
+SUMMARY:Disney Princess: The Concert
+DESCRIPTION:Immerse yourself in the magical world of Disney Princesses at Disney 
+ Princess: The Concert featuring Broadway and TV stars performing timeless 
+ melodies live with your St. Louis Symphony Orchestra.\n\nFor tickets, visit: 
+ https://shop.slso.org/8205/8211\n\nApple Maps: 
+ https://maps.apple.com/?address=1400%20Market%20St,%20Saint%20Louis,%20MO%20%2063103,%20United%20States&auid=15633552694185841461&ll=38.627623,-90.201649&lsp=9902&q=Stifel%20Theatre
+LOCATION:Stifel Theatre
+URL:https://slso.org
+STATUS:CONFIRMED
+SEQUENCE:0
+END:VEVENT
+BEGIN:VEVENT
+UID:20250511T150000Z-47@jacobhuber.me
+DTSTAMP:20250101T180000Z
+DTSTART;TZID=America/Chicago:20250511T150000
+DTEND;TZID=America/Chicago:20250511T163000
+SUMMARY:St. Louis Symphony Youth Orchestra - Season Finale
+DESCRIPTION:Experience the future of orchestral music at a St. Louis Symphony 
+ Youth Orchestra concert. Nationally recognized for its superb artistry, the YO 
+ includes 100 accomplished musicians ages 12–22 who represent more than 40 
+ schools from the St. Louis region and beyond.\n\nFor tickets, visit: 
+ https://shop.slso.org/8493/8512\n\nApple Maps: 
+ https://maps.apple.com/?address=1%20Touhill%20Circle%0ASt.Louis%2063121%0AUnited%20States&auid=14116370571690537638&ll=38.713740,-90.308695&lsp=9902&q=Touhill%20Performing%20Arts%20Center
+LOCATION:Touhill Performing Arts Center
+URL:https://slso.org
+STATUS:CONFIRMED
+SEQUENCE:0
+END:VEVENT
+BEGIN:VEVENT
+UID:20250517T193000Z-48@jacobhuber.me
+DTSTAMP:20250101T180000Z
+DTSTART;TZID=America/Chicago:20250517T193000
+DTEND;TZID=America/Chicago:20250517T210000
+SUMMARY:Revolution: The Music of The Beatles - A Symphonic Experience
+DESCRIPTION:Join the revolution! Dive into The Beatles' legacy with a symphonic 
+ tribute featuring more than 25 hits, stunning visuals, and arrangements by 
+ Grammy-winner Jeff Tyzik. Rare photos and captivating video bring the Fab Four’s 
+ magic to life.\n\nFor tickets, visit: 
+ https://shop.slso.org/8710/8712\n\nApple Maps: 
+ https://maps.apple.com/?address=1400%20Market%20St,%20Saint%20Louis,%20MO%20%2063103,%20United%20States&auid=15633552694185841461&ll=38.627623,-90.201649&lsp=9902&q=Stifel%20Theatre
+LOCATION:Stifel Theatre
+URL:https://slso.org
+STATUS:CONFIRMED
+SEQUENCE:0
 END:VEVENT
 END:VCALENDAR
