@@ -1,6 +1,7 @@
 // src/app/layout.tsx
 import { SpeedInsights } from '@vercel/speed-insights/next';
-import { Analytics } from "@vercel/analytics/react"
+import { Analytics } from "@vercel/analytics/react";
+import { ClerkProvider, SignedIn, SignedOut, SignInButton, UserButton } from '@clerk/nextjs';
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
@@ -38,27 +39,41 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
+      <ClerkProvider>
+        <body
+          className={`${geistSans.variable} ${geistMono.variable} antialiased`}
         >
-          <NavTop />
-          <main className='container mx-auto px-4 py-8'>{children}</main>
-          <NavBottom />
-        </ThemeProvider>
-        <Analytics />
-        <SpeedInsights />
-      </body>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
+          >
+            <NavTop />
+            <main className="container mx-auto px-4 py-8">
+              {children}
+            </main>
+            <NavBottom />
+          </ThemeProvider>
+          <Analytics />
+          <SpeedInsights />
+
+          {/* Authentication UI */}
+          <footer className="fixed bottom-0 right-0 m-4">
+            <SignedOut>
+              <SignInButton mode="modal" />
+            </SignedOut>
+            <SignedIn>
+              <UserButton />
+            </SignedIn>
+          </footer>
+        </body>
+      </ClerkProvider>
     </html>
   );
 }

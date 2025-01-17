@@ -19,7 +19,7 @@ export function NavTop() {
       </Link>
 
       {/* Desktop Navigation */}
-      <div className="hidden md:flex space-x-4">
+      <div className="hidden md:flex space-x-4 items-center">
         <Link href="/blog" className="hover:underline">
           Blog
         </Link>
