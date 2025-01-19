@@ -159,48 +159,49 @@ export default function RSVPTrackingPage() {
         </CardContent>
       </Card>
 
-      {/* Collapsible RSVP Form */}
       <Collapsible open={isFormOpen}>
-        <CollapsibleTrigger asChild>
-        <Button
-          onClick={handleRSVPButtonClick}
-          className="mb-4 px-6 py-3 text-lg font-bold text-white bg-blue-500 hover:bg-blue-600 rounded-lg shadow-lg transition-all duration-200"
-        >
-          {isFormOpen ? 'Hide RSVP Form' : 'Edit/Add Your RSVP'}
-        </Button>
-        </CollapsibleTrigger>
-        <CollapsibleContent>
-          {isSignedIn ? (
-            <>
-              <h2 className="text-2xl font-bold mb-4">
-                {userRSVP ? 'Edit Your RSVP' : 'Add Your RSVP'}
-              </h2>
-              {message && <p className="text-red-500">{message}</p>}
-              <RSVPForm
-                existingRSVP={userRSVP}
-                onSubmit={(name, attending, preferredTime, message) =>
-                  userRSVP
-                    ? updateRSVP(
-                        name,
-                        attending || '', // Fallback to an empty string if null
-                        preferredTime || '', // Fallback to an empty string if null
-                        message
-                      )
-                    : addRSVP(
-                        name,
-                        attending || '', // Fallback to an empty string if null
-                        preferredTime || '', // Fallback to an empty string if null
-                        message
-                      )
-                }
-                onDelete={removeRSVP}
-              />
-            </>
-          ) : (
-            <p className="text-center text-gray-500">Please log in to RSVP!</p>
-          )}
-        </CollapsibleContent>
-      </Collapsible>
+  <div className="flex items-center justify-start gap-4 mb-4">
+    <CollapsibleTrigger asChild>
+      <Button
+        onClick={handleRSVPButtonClick}
+        className="px-6 py-4 text-xl font-semibold text-white bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 hover:from-purple-600 hover:via-pink-600 hover:to-red-600 shadow-lg rounded-lg transition-all duration-200 transform hover:scale-105"
+      >
+        {isFormOpen ? 'Hide RSVP Form' : 'Add/Edit RSVP'}
+      </Button>
+    </CollapsibleTrigger>
+  </div>
+  <CollapsibleContent>
+    {isSignedIn ? (
+      <>
+        <h2 className="text-2xl font-bold mb-4">
+          {userRSVP ? 'Edit Your RSVP' : 'Add Your RSVP'}
+        </h2>
+        {message && <p className="text-red-500">{message}</p>}
+        <RSVPForm
+          existingRSVP={userRSVP}
+          onSubmit={(name, attending, preferredTime, message) =>
+            userRSVP
+              ? updateRSVP(
+                  name,
+                  attending || '',
+                  preferredTime || '',
+                  message
+                )
+              : addRSVP(
+                  name,
+                  attending || '',
+                  preferredTime || '',
+                  message
+                )
+          }
+          onDelete={removeRSVP}
+        />
+      </>
+    ) : (
+      <p className="text-center text-gray-500">Please log in to RSVP!</p>
+    )}
+  </CollapsibleContent>
+</Collapsible>
 
       <Separator className="my-6" />
 
