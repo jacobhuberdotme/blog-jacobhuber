@@ -162,9 +162,12 @@ export default function RSVPTrackingPage() {
       {/* Collapsible RSVP Form */}
       <Collapsible open={isFormOpen}>
         <CollapsibleTrigger asChild>
-          <Button variant="outline" onClick={handleRSVPButtonClick} className="mb-4">
-            {isFormOpen ? 'Hide RSVP Form' : 'Edit/Add Your RSVP'}
-          </Button>
+        <Button
+          onClick={handleRSVPButtonClick}
+          className="mb-4 px-6 py-3 text-lg font-bold text-white bg-blue-500 hover:bg-blue-600 rounded-lg shadow-lg transition-all duration-200"
+        >
+          {isFormOpen ? 'Hide RSVP Form' : 'Edit/Add Your RSVP'}
+        </Button>
         </CollapsibleTrigger>
         <CollapsibleContent>
           {isSignedIn ? (
