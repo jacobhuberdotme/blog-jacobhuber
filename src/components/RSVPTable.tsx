@@ -20,7 +20,7 @@ export default function RSVPTable({ rsvps }: RSVPTableProps) {
       {/* <TableCaption>A list of RSVP responses.</TableCaption> */}
       <TableHeader>
         <TableRow>
-          <TableHead>Name</TableHead>
+          <TableHead>Name(s)</TableHead>
           <TableHead>Attending</TableHead>
           <TableHead>Preferred Time</TableHead>
           <TableHead>Message</TableHead>

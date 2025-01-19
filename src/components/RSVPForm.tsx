@@ -101,7 +101,7 @@ export default function RSVPForm({ existingRSVP, onSubmit, onDelete }: RSVPFormP
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
           <input
             name="name"
-            placeholder="Name"
+            placeholder="Name(s)"
             defaultValue={existingRSVP?.name || ""}
             className="border p-2 rounded"
             required
