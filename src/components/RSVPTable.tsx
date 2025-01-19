@@ -22,7 +22,7 @@ export default function RSVPTable({ rsvps }: RSVPTableProps) {
         <TableRow>
           <TableHead>Name(s)</TableHead>
           <TableHead>Attending</TableHead>
-          <TableHead>Preferred Time</TableHead>
+          <TableHead>Preferred VR Time</TableHead>
           <TableHead>Message</TableHead>
         </TableRow>
       </TableHeader>

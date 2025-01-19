@@ -13,8 +13,8 @@ import { RSVP } from "@/types/rsvp";
 
 interface RSVPFormProps {
   existingRSVP: RSVP | null;
-  onSubmit: (name: string, attending: string, preferredTime: string, message: string) => void;
-  onDelete: () => void; // Add delete handler
+  onSubmit: (name: string, attending: string, preferredTime: string | null, message: string) => void;
+  onDelete: () => void;
 }
 
 interface Option {
@@ -25,14 +25,14 @@ interface Option {
 export default function RSVPForm({ existingRSVP, onSubmit, onDelete }: RSVPFormProps) {
   const [attendingOptions, setAttendingOptions] = useState<Option[]>([]);
   const [preferredTimeOptions, setPreferredTimeOptions] = useState<Option[]>([]);
-  const [selectedAttending, setSelectedAttending] = useState<string | undefined>(
-    existingRSVP?.attending
+  const [selectedAttending, setSelectedAttending] = useState<string | null>(
+    existingRSVP?.attending || null
   );
-  const [selectedPreferredTime, setSelectedPreferredTime] = useState<string | undefined>(
-    existingRSVP?.preferredTime
+  const [selectedPreferredTime, setSelectedPreferredTime] = useState<string | null>(
+    existingRSVP?.preferredTime || null
   );
+  const [isDoingVR, setIsDoingVR] = useState<boolean>(!!existingRSVP?.preferredTime);
 
-  // Fetch dropdown options
   useEffect(() => {
     async function fetchOptions() {
       try {
@@ -70,11 +70,11 @@ export default function RSVPForm({ existingRSVP, onSubmit, onDelete }: RSVPFormP
     fetchOptions();
   }, []);
 
-  // Update selected values when editing an RSVP
   useEffect(() => {
     if (existingRSVP) {
-      setSelectedAttending(existingRSVP.attending);
-      setSelectedPreferredTime(existingRSVP.preferredTime);
+      setSelectedAttending(existingRSVP.attending || null);
+      setSelectedPreferredTime(existingRSVP.preferredTime || null);
+      setIsDoingVR(!!existingRSVP.preferredTime);
     }
   }, [existingRSVP]);
 
@@ -85,11 +85,12 @@ export default function RSVPForm({ existingRSVP, onSubmit, onDelete }: RSVPFormP
     const name = formData.get("name") as string;
     const message = formData.get("message") as string;
 
-    if (selectedAttending && selectedPreferredTime) {
-      onSubmit(name, selectedAttending, selectedPreferredTime, message || "");
-    } else {
-      console.error("Attending or Preferred Time not selected");
-    }
+    onSubmit(
+      name,
+      selectedAttending || "",
+      isDoingVR ? selectedPreferredTime : null,
+      message || ""
+    );
   };
 
   return (
@@ -107,8 +108,8 @@ export default function RSVPForm({ existingRSVP, onSubmit, onDelete }: RSVPFormP
             required
           />
           <Select
-            value={selectedAttending}
-            onValueChange={setSelectedAttending}
+            value={selectedAttending || undefined}
+            onValueChange={(value) => setSelectedAttending(value || null)}
           >
             <SelectTrigger>
               <SelectValue placeholder="Attending (Yes/No/Maybe)" />
@@ -121,21 +122,33 @@ export default function RSVPForm({ existingRSVP, onSubmit, onDelete }: RSVPFormP
               ))}
             </SelectContent>
           </Select>
-          <Select
-            value={selectedPreferredTime}
-            onValueChange={setSelectedPreferredTime}
-          >
-            <SelectTrigger>
-              <SelectValue placeholder="Preferred Time" />
-            </SelectTrigger>
-            <SelectContent>
-              {preferredTimeOptions.map((option) => (
-                <SelectItem key={option.id} value={option.value}>
-                  {option.value}
-                </SelectItem>
-              ))}
-            </SelectContent>
-          </Select>
+          <div className="flex items-center">
+            <input
+              type="checkbox"
+              id="vr-participation"
+              checked={isDoingVR}
+              onChange={(e) => setIsDoingVR(e.target.checked)}
+              className="mr-2"
+            />
+            <label htmlFor="vr-participation">Participating in VR?</label>
+          </div>
+          {isDoingVR && (
+            <Select
+              value={selectedPreferredTime || undefined}
+              onValueChange={(value) => setSelectedPreferredTime(value || null)}
+            >
+              <SelectTrigger>
+                <SelectValue placeholder="Preferred Time" />
+              </SelectTrigger>
+              <SelectContent>
+                {preferredTimeOptions.map((option) => (
+                  <SelectItem key={option.id} value={option.value}>
+                    {option.value}
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
+          )}
           <input
             name="message"
             placeholder="Message"

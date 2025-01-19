@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { useUser } from '@clerk/nextjs';
+import { useUser, useClerk } from '@clerk/nextjs'; // Import useClerk
 import RSVPForm from '@/components/RSVPForm';
 import RSVPTable from '@/components/RSVPTable';
 import useRSVPs from '@/hooks/useRSVPs';
@@ -13,7 +13,8 @@ import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/component
 
 export default function RSVPTrackingPage() {
   const { rsvps, message, fetchRSVPs } = useRSVPs();
-  const { user } = useUser();
+  const { user, isSignedIn } = useUser();
+  const { openSignIn } = useClerk(); // Access the Clerk client to use openSignIn
   const email = user?.emailAddresses[0]?.emailAddress;
 
   const [userRSVP, setUserRSVP] = useState<RSVP | null>(null);
@@ -23,6 +24,15 @@ export default function RSVPTrackingPage() {
     const currentRSVP = rsvps.find((rsvp) => rsvp.email === email) || null;
     setUserRSVP(currentRSVP);
   }, [rsvps, email]);
+
+  const handleRSVPButtonClick = () => {
+    if (!isSignedIn) {
+      // Open the Clerk sign-in modal if the user is not signed in
+      openSignIn();
+    } else {
+      setIsFormOpen((prev) => !prev);
+    }
+  };
 
   const addRSVP = async (name: string, attending: string, preferredTime: string, message: string) => {
     try {
@@ -150,26 +160,42 @@ export default function RSVPTrackingPage() {
       </Card>
 
       {/* Collapsible RSVP Form */}
-      <Collapsible open={isFormOpen} onOpenChange={setIsFormOpen}>
+      <Collapsible open={isFormOpen}>
         <CollapsibleTrigger asChild>
-          <Button variant="outline" className="mb-4">
+          <Button variant="outline" onClick={handleRSVPButtonClick} className="mb-4">
             {isFormOpen ? 'Hide RSVP Form' : 'Edit/Add Your RSVP'}
           </Button>
         </CollapsibleTrigger>
         <CollapsibleContent>
-          <h2 className="text-2xl font-bold mb-4">
-            {userRSVP ? 'Edit Your RSVP' : 'Add Your RSVP'}
-          </h2>
-          {message && <p className="text-red-500">{message}</p>}
-          <RSVPForm
-            existingRSVP={userRSVP}
-            onSubmit={(name, attending, preferredTime, message) =>
-              userRSVP
-                ? updateRSVP(name, attending, preferredTime, message)
-                : addRSVP(name, attending, preferredTime, message)
-            }
-            onDelete={removeRSVP}
-          />
+          {isSignedIn ? (
+            <>
+              <h2 className="text-2xl font-bold mb-4">
+                {userRSVP ? 'Edit Your RSVP' : 'Add Your RSVP'}
+              </h2>
+              {message && <p className="text-red-500">{message}</p>}
+              <RSVPForm
+                existingRSVP={userRSVP}
+                onSubmit={(name, attending, preferredTime, message) =>
+                  userRSVP
+                    ? updateRSVP(
+                        name,
+                        attending || '', // Fallback to an empty string if null
+                        preferredTime || '', // Fallback to an empty string if null
+                        message
+                      )
+                    : addRSVP(
+                        name,
+                        attending || '', // Fallback to an empty string if null
+                        preferredTime || '', // Fallback to an empty string if null
+                        message
+                      )
+                }
+                onDelete={removeRSVP}
+              />
+            </>
+          ) : (
+            <p className="text-center text-gray-500">Please log in to RSVP!</p>
+          )}
         </CollapsibleContent>
       </Collapsible>
 

@@ -6,13 +6,13 @@ import { Separator } from "@/components/ui/separator";
 
 export default function HomePage() {
   return (
-    <div>
+    <div className="space-y-12"> 
       <Hero />
-      <Separator className="my-8" />
+      <Separator />
       <HighlightSection />
-      <Separator className="my-8" />
+      <Separator />
       <FeaturedContentSection />
-      <Separator className="my-8" />
+      <Separator />
       <CallToAction />
     </div>
   );

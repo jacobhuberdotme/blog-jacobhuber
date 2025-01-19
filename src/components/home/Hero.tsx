@@ -2,8 +2,7 @@ import Image from "next/image";
 
 export default function Hero() {
   return (
-    <section className="relative container mx-auto text-center py-16 px-6">
-      {/* Background Image */}
+    <section className="relative container mx-auto text-center py-12 px-6">
       <div className="absolute inset-0 z-0">
         <Image
           src="/background.jpg"
@@ -13,8 +12,6 @@ export default function Hero() {
           className="rounded-lg opacity-20"
         />
       </div>
-
-      {/* Content Overlay */}
       <div className="relative z-10">
         <h2 className="text-4xl md:text-5xl font-bold text-primary mb-6">
           Welcome to My Space
