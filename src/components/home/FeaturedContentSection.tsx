@@ -76,7 +76,7 @@ export default function FeaturedContentSection() {
   const topPriorityProject = getTopPriorityProject();
 
   return (
-    <section className="container mx-auto py-12">
+    <section className="container mx-auto">
       <h2 className="text-3xl md:text-4xl font-bold text-center mb-8">Featured Content</h2>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {/* Featured Blog Post */}

@@ -62,16 +62,6 @@ export default function RootLayout({
           </ThemeProvider>
           <Analytics />
           <SpeedInsights />
-
-          {/* Authentication UI */}
-          <footer className="fixed bottom-0 right-0 m-4">
-            <SignedOut>
-              <SignInButton mode="modal" />
-            </SignedOut>
-            <SignedIn>
-              <UserButton />
-            </SignedIn>
-          </footer>
         </body>
       </ClerkProvider>
     </html>

@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default function HighlightSection() {
   return (
-    <section className="container mx-auto py-12 grid grid-cols-1 md:grid-cols-3 gap-6">
+    <section className="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
       {/* Blog Card */}
       <Card>
         <CardHeader>
