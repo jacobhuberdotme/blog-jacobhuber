@@ -1,7 +1,7 @@
 // src/app/layout.tsx
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import { Analytics } from "@vercel/analytics/react";
-import { ClerkProvider, SignedIn, SignedOut, SignInButton, UserButton } from '@clerk/nextjs';
+import { ClerkProvider } from '@clerk/nextjs';
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
