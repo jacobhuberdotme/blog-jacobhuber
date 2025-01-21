@@ -15,7 +15,6 @@ import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/nextjs";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import { Menu } from "lucide-react";
-import { Suspense } from "react";
 
 export function NavTop() {
   const [isOpen, setIsOpen] = React.useState(false);
@@ -34,6 +33,7 @@ export function NavTop() {
         <div className="hidden md:flex items-center">
           <NavigationMenu>
             <NavigationMenuList>
+              {/* Blog Link */}
               <NavigationMenuItem>
                 <Link href="/blog" legacyBehavior passHref>
                   <NavigationMenuLink className={navigationMenuTriggerStyle()}>
@@ -41,6 +41,8 @@ export function NavTop() {
                   </NavigationMenuLink>
                 </Link>
               </NavigationMenuItem>
+
+              {/* Projects Link */}
               <NavigationMenuItem>
                 <Link href="/projects" legacyBehavior passHref>
                   <NavigationMenuLink className={navigationMenuTriggerStyle()}>
@@ -48,6 +50,8 @@ export function NavTop() {
                   </NavigationMenuLink>
                 </Link>
               </NavigationMenuItem>
+
+              {/* Dropdown Menu for "Me" */}
               <NavigationMenuItem>
                 <NavigationMenuTrigger>Me</NavigationMenuTrigger>
                 <NavigationMenuContent>
@@ -65,24 +69,37 @@ export function NavTop() {
           </NavigationMenu>
 
           {/* Authentication Section */}
-          <Suspense fallback={<Button variant="outline" size="sm">Loading...</Button>}>
-            <div className="flex items-center gap-4">
-              <SignedOut>
-                <SignInButton mode="modal">
-                  <Button variant="outline" size="sm">
-                    Sign In
-                  </Button>
-                </SignInButton>
-              </SignedOut>
-              <SignedIn>
-                <UserButton />
-              </SignedIn>
-            </div>
-          </Suspense>
+          <div className="flex items-center space-x-2">
+            <SignedOut>
+              <SignInButton mode="modal">
+                <Button variant="outline" size="sm">
+                  Sign In
+                </Button>
+              </SignInButton>
+            </SignedOut>
+            <SignedIn>
+              <UserButton />
+            </SignedIn>
+          </div>
         </div>
 
-        {/* Mobile Hamburger Menu */}
-        <div className="md:hidden">
+        {/* Mobile Navigation */}
+        <div className="md:hidden flex items-center">
+          {/* Authentication Section */}
+          <div className="flex items-center space-x-2 mr-2">
+            <SignedOut>
+              <SignInButton mode="modal">
+                <Button variant="outline" size="sm">
+                  Sign In
+                </Button>
+              </SignInButton>
+            </SignedOut>
+            <SignedIn>
+              <UserButton />
+            </SignedIn>
+          </div>
+
+          {/* Hamburger Menu */}
           <Sheet open={isOpen} onOpenChange={setIsOpen}>
             <SheetTrigger asChild>
               <Button variant="outline" size="icon">
@@ -106,18 +123,6 @@ export function NavTop() {
                 <Link href="/resume" className="hover:underline text-lg" onClick={closeSheet}>
                   Resume
                 </Link>
-                <Suspense fallback={<Button variant="outline" size="sm" className="w-full">Loading...</Button>}>
-                  <SignedOut>
-                    <SignInButton mode="modal">
-                      <Button variant="outline" size="sm" className="w-full" onClick={closeSheet}>
-                        Sign In
-                      </Button>
-                    </SignInButton>
-                  </SignedOut>
-                  <SignedIn>
-                    <UserButton />
-                  </SignedIn>
-                </Suspense>
               </nav>
             </SheetContent>
           </Sheet>
