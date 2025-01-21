@@ -1,13 +1,19 @@
-import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
+import { Card, CardHeader, CardContent } from "@/components/ui/card";
 import Link from "next/link";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBlog, faBriefcase, faFileAlt } from "@fortawesome/free-solid-svg-icons";
 
 export default function HighlightSection() {
   return (
     <section className="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
       {/* Blog Card */}
       <Card>
-        <CardHeader>
-          <CardTitle>Read My Blog</CardTitle>
+        <CardHeader className="flex justify-center">
+          <FontAwesomeIcon
+            icon={faBlog}
+            className="text-primary"
+            style={{ fontSize: "1.75rem", width: "2.5rem", height: "2.5rem" }} // Explicit dimensions
+          />
         </CardHeader>
         <CardContent>
           <p className="text-muted-foreground mb-4">
@@ -21,12 +27,16 @@ export default function HighlightSection() {
 
       {/* Projects Card */}
       <Card>
-        <CardHeader>
-          <CardTitle>View My Projects</CardTitle>
+        <CardHeader className="flex justify-center">
+          <FontAwesomeIcon
+            icon={faBriefcase}
+            className="text-primary"
+            style={{ fontSize: "1.75rem", width: "2.5rem", height: "2.5rem" }}
+          />
         </CardHeader>
         <CardContent>
           <p className="text-muted-foreground mb-4">
-            Discover the tools and solutions I’ve built.
+            Discover the tools and solutions I&apos;ve built.
           </p>
           <Link href="/projects" className="text-primary font-semibold hover:underline">
             See Projects &rarr;
@@ -36,8 +46,12 @@ export default function HighlightSection() {
 
       {/* Resume Card */}
       <Card>
-        <CardHeader>
-          <CardTitle>Check My Resume</CardTitle>
+        <CardHeader className="flex justify-center">
+          <FontAwesomeIcon
+            icon={faFileAlt}
+            className="text-primary"
+            style={{ fontSize: "1.75rem", width: "2.5rem", height: "2.5rem" }}
+          />
         </CardHeader>
         <CardContent>
           <p className="text-muted-foreground mb-4">
