@@ -80,7 +80,7 @@ export default function RSVPTrackingPage() {
   };
 
   return (
-    <div className="p-6 space-y-8">
+    <div className="space-y-8">
       {/* Event Details */}
       <Card>
         <CardHeader>
