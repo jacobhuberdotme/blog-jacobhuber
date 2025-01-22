@@ -10,7 +10,6 @@ export async function GET() {
       .from(RSVPs)
       .orderBy(sql`LOWER(${RSVPs.name})`);
 
-    console.log("Fetched RSVPs:", rsvps);
     return NextResponse.json(rsvps);
   } catch (error) {
     console.error("Error fetching RSVPs:", error);

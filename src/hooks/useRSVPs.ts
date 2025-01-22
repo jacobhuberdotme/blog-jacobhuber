@@ -22,7 +22,6 @@ export default function useRSVPs() {
   };
 
   useEffect(() => {
-    console.log("Fetching RSVPs...");
     fetchRSVPs();
   }, []);
 

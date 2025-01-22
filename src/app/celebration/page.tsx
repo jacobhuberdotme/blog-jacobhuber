@@ -1,9 +1,10 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { useUser, useClerk } from '@clerk/nextjs'; // Import useClerk
+import { useUser, useClerk } from '@clerk/nextjs'; 
 import RSVPForm from '@/components/RSVPForm';
 import RSVPTable from '@/components/RSVPTable';
+import TimeSlotTable from '@/components/TimeSlotTable'; 
 import useRSVPs from '@/hooks/useRSVPs';
 import { RSVP } from '@/types/rsvp';
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '@/components/ui/card';
@@ -14,11 +15,29 @@ import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/component
 export default function RSVPTrackingPage() {
   const { rsvps, message, fetchRSVPs } = useRSVPs();
   const { user, isSignedIn } = useUser();
-  const { openSignIn } = useClerk(); // Access the Clerk client to use openSignIn
+  const { openSignIn } = useClerk();
   const email = user?.emailAddresses[0]?.emailAddress;
 
   const [userRSVP, setUserRSVP] = useState<RSVP | null>(null);
   const [isFormOpen, setIsFormOpen] = useState(false);
+  const [isRSVPListOpen, setIsRSVPListOpen] = useState(false); 
+  const [timeSlots, setTimeSlots] = useState<{ name: string; timeSlot: string }[]>([]);
+
+  useEffect(() => {
+    const fetchTimeSlots = async () => {
+      try {
+        const response = await fetch("/api/time-slots", { cache: "no-store" });
+        if (!response.ok) throw new Error("Failed to fetch time slots");
+
+        const data = await response.json();
+        setTimeSlots(data); // Data from your database
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+    fetchTimeSlots();
+  }, []);
 
   useEffect(() => {
     const currentRSVP = rsvps.find((rsvp) => rsvp.email === email) || null;
@@ -27,7 +46,6 @@ export default function RSVPTrackingPage() {
 
   const handleRSVPButtonClick = () => {
     if (!isSignedIn) {
-      // Open the Clerk sign-in modal if the user is not signed in
       openSignIn();
     } else {
       setIsFormOpen((prev) => !prev);
@@ -159,56 +177,60 @@ export default function RSVPTrackingPage() {
         </CardContent>
       </Card>
 
+      {/* Time Slot Table */}
+      <div>
+        <h2 className="text-2xl font-bold mb-4">Time Slots</h2>
+        <TimeSlotTable timeSlots={timeSlots} />
+        </div>
+
+          <Separator className="my-6" />
+
       <Collapsible open={isFormOpen}>
-  <div className="flex items-center justify-start gap-4 mb-4">
-    <CollapsibleTrigger asChild>
-      <Button
-        onClick={handleRSVPButtonClick}
-        className="px-6 py-4 text-xl font-semibold text-white bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 hover:from-purple-600 hover:via-pink-600 hover:to-red-600 shadow-lg rounded-lg transition-all duration-200 transform hover:scale-105"
-      >
-        {isFormOpen ? 'Hide RSVP Form' : 'Add/Edit RSVP'}
-      </Button>
-    </CollapsibleTrigger>
-  </div>
-  <CollapsibleContent>
-    {isSignedIn ? (
-      <>
-        <h2 className="text-2xl font-bold mb-4">
-          {userRSVP ? 'Edit Your RSVP' : 'Add Your RSVP'}
-        </h2>
-        {message && <p className="text-red-500">{message}</p>}
-        <RSVPForm
-          existingRSVP={userRSVP}
-          onSubmit={(name, attending, preferredTime, message) =>
-            userRSVP
-              ? updateRSVP(
-                  name,
-                  attending || '',
-                  preferredTime || '',
-                  message
-                )
-              : addRSVP(
-                  name,
-                  attending || '',
-                  preferredTime || '',
-                  message
-                )
-          }
-          onDelete={removeRSVP}
-        />
-      </>
-    ) : (
-      <p className="text-center text-gray-500">Please log in to RSVP!</p>
-    )}
-  </CollapsibleContent>
-</Collapsible>
+        <div className="flex items-center justify-start gap-4 mb-4">
+          <CollapsibleTrigger asChild>
+            <Button
+              onClick={handleRSVPButtonClick}
+              className="px-6 py-4 text-xl font-semibold text-white bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 hover:from-purple-600 hover:via-pink-600 hover:to-red-600 shadow-lg rounded-lg transition-all duration-200 transform hover:scale-105"
+            >
+              {isFormOpen ? 'Hide RSVP' : 'My RSVP'}
+            </Button>
+          </CollapsibleTrigger>
+        </div>
+        <CollapsibleContent>
+          {isSignedIn ? (
+            <>
+              <h2 className="text-2xl font-bold mb-4">
+                {userRSVP ? 'Edit Your RSVP' : 'Add Your RSVP'}
+              </h2>
+              {message && <p className="text-red-500">{message}</p>}
+              <RSVPForm
+                existingRSVP={userRSVP}
+                onSubmit={(name, attending, preferredTime, message) =>
+                  userRSVP
+                    ? updateRSVP(name, attending || '', preferredTime || '', message)
+                    : addRSVP(name, attending || '', preferredTime || '', message)
+                }
+                onDelete={removeRSVP}
+              />
+            </>
+          ) : (
+            <p className="text-center text-gray-500">Please log in to RSVP!</p>
+          )}
+        </CollapsibleContent>
+      </Collapsible>
 
       <Separator className="my-6" />
 
       {/* RSVP List */}
       <div>
         <h2 className="text-2xl font-bold mb-4">RSVP List</h2>
-        <RSVPTable rsvps={rsvps} />
+        <Button
+          onClick={() => setIsRSVPListOpen(!isRSVPListOpen)}
+          className="px-6 py-4 text-xl font-semibold text-white bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 hover:from-purple-600 hover:via-pink-600 hover:to-red-600 shadow-lg rounded-lg transition-all duration-200 transform hover:scale-105"
+        >
+          {isRSVPListOpen ? 'Hide List' : 'View List'}
+        </Button>
+        {isRSVPListOpen && <RSVPTable rsvps={rsvps} />}
       </div>
     </div>
   );

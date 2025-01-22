@@ -19,3 +19,9 @@ export const preferredTimeOptions = pgTable('preferred_time_options', {
   id: serial('id').primaryKey(),
   time: text('option').notNull(), 
 });
+
+export const TimeSlots = pgTable("time_slots", {
+  id: serial("id").primaryKey(),
+  name: text("name").notNull(),
+  timeSlot: text("time_slot").notNull(),
+});
