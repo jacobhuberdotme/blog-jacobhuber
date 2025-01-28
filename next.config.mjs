@@ -18,6 +18,12 @@ const nextConfig = {
         port: '',
         pathname: '/wp-content/uploads/**',
       },
+      {
+        protocol: 'https',
+        hostname: 'sandboxvr.imgix.net', // Add this entry
+        port: '',
+        pathname: '/**', // Allow all paths under this hostname
+      },
     ],
   },
   webpack: (config, { isServer }) => {

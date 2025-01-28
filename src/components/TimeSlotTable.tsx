@@ -4,11 +4,10 @@ import { Alert, AlertDescription, AlertTitle } from "./ui/alert";
 import { Info } from "lucide-react";
 
 type TimeSlotTableProps = {
-  timeSlots: { name: string; timeSlot: string }[]; // Adjusted to match the database structure
+  timeSlots: { name: string; timeSlot: string }[];
 };
 
 const TimeSlotTable: React.FC<TimeSlotTableProps> = ({ timeSlots }) => {
-  // Group data by time slots
   const groupedByTime = timeSlots.reduce((acc, entry) => {
     const time = entry.timeSlot || "No Time Selected";
     if (!acc[time]) acc[time] = [];
