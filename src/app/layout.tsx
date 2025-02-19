@@ -22,18 +22,18 @@ const geistMono = localFont({
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://jacobhuber.me'),
-  title: 'Jacob Huber',
-  description: 'Jacob Huber\'s personal website',
+  title: 'Jacob Huber - Next.js Developer & API Specialist',
+  description: "Jacob Huber's personal website showcasing his work, blog, and projects.",
   openGraph: {
     title: 'Jacob Huber',
-    description: 'Welcome to Jacob Huber\'s personal website',
-    images: '/default-image.jpg',
+    description: "Explore Jacob Huber’s expertise in APIs, Next.js, and web development.",
+    images: ['https://jacobhuber.me/default-image.jpg'],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Jacob Huber',
-    description: 'Jacob Huber\'s personal website',
-    images: '/default-image.jpg',
+    description: "Jacob Huber's personal website showcasing his work, blog, and projects.",
+    images: ['https://jacobhuber.me/default-image.jpg'],
   },
 };
 
