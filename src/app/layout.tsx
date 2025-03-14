@@ -21,20 +21,33 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://jacobhuber.me'),
-  title: 'Jacob Huber - Next.js Developer & API Specialist',
-  description: "Jacob Huber's personal website showcasing his work, blog, and projects.",
+  metadataBase: new URL('https://jacobhuber.me'), 
+  title: "Jacob Huber - Next.js Developer & API Specialist",
+  description: "Explore Jacob Huber’s expertise in APIs, Next.js, and web development.",
+  
   openGraph: {
-    title: 'Jacob Huber',
-    description: "Explore Jacob Huber’s expertise in APIs, Next.js, and web development.",
-    images: ['https://jacobhuber.me/default-image.jpg'],
+    title: "Jacob Huber - Next.js Developer & API Specialist",
+    description: "Jacob Huber’s personal website showcasing his work, blog, and projects.",
+    url: "https://jacobhuber.me",
+    type: "website",
+    images: [
+      {
+        url: "https://jacobhuber.me/default-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Jacob Huber - Next.js Developer & API Specialist"
+      }
+    ]
   },
+
   twitter: {
-    card: 'summary_large_image',
-    title: 'Jacob Huber',
-    description: "Jacob Huber's personal website showcasing his work, blog, and projects.",
-    images: ['https://jacobhuber.me/default-image.jpg'],
-  },
+    card: "summary_large_image",
+    title: "Jacob Huber - Next.js Developer & API Specialist",
+    description: "Explore Jacob Huber’s expertise in APIs, Next.js, and web development.",
+    site: "@jacobhuberdotme",
+    creator: "@jacobhuberdotme",
+    images: ["https://jacobhuber.me/default-image.jpg"]
+  }
 };
 
 export default function RootLayout({
