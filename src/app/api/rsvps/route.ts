@@ -1,43 +1,49 @@
-import { db } from "@/app/db";
-import { RSVPs } from "@/app/db/schema";
-import { NextRequest, NextResponse } from "next/server";
-import { eq, sql } from 'drizzle-orm';
+import { NextRequest, NextResponse } from 'next/server';
+import { Pool } from 'pg';
+
+const pool = new Pool({
+  connectionString: process.env.DATABASE_URL,
+});
 
 export async function GET() {
   try {
-    const rsvps = await db
-      .select()
-      .from(RSVPs)
-      .orderBy(sql`LOWER(${RSVPs.name})`);
-
-    return NextResponse.json(rsvps);
-  } catch (error) {
-    console.error("Error fetching RSVPs:", error);
-    return NextResponse.json(
-      { error: "Failed to fetch RSVPs" },
-      { status: 500 }
+    const result = await pool.query(
+      `SELECT r.id AS id, r.email, r.message, r.created_at,
+              COALESCE(json_agg(
+                json_build_object('id', g.id, 'name', g.name, 'attending', g.attending)
+              ) FILTER (WHERE g.id IS NOT NULL), '[]') AS guests
+       FROM rsvps r
+       LEFT JOIN guests g ON r.id = g.rsvp_id
+       GROUP BY r.id
+       ORDER BY r.created_at DESC`
     );
+    return NextResponse.json(result.rows);
+  } catch (error) {
+    console.error('Failed to fetch RSVPs:', error);
+    return NextResponse.json({ error: 'Failed to fetch RSVPs' }, { status: 500 });
   }
 }
 
 export async function POST(req: NextRequest) {
   try {
-    const { name, email, attending, preferredTime, message } = await req.json();
+    const { email, message, guests } = await req.json();
 
-    // Check if user already has an RSVP
-    const existingRSVP = await db
-      .select()
-      .from(RSVPs)
-      .where(eq(RSVPs.email, email))
-      .limit(1);
 
-    if (existingRSVP.length > 0) {
-      return NextResponse.json({ error: 'You can only create one RSVP.' }, { status: 403 });
+    const insertRSVP = await pool.query(
+      `INSERT INTO rsvps (email, message) VALUES ($1, $2) RETURNING id`,
+      [email, message]
+    );
+    const rsvpId = insertRSVP.rows[0].id;
+
+    // Insert guests
+    for (const guest of guests) {
+      await pool.query(
+        `INSERT INTO guests (rsvp_id, name, attending) VALUES ($1, $2, $3)`,
+        [rsvpId, guest.name, guest.attending]
+      );
     }
 
-    await db.insert(RSVPs).values({ name, email, attending, preferredTime, message });
-
-    return NextResponse.json({ message: 'RSVP created successfully.' });
+    return NextResponse.json({ message: 'RSVP created successfully.', rsvpId });
   } catch (error) {
     console.error('Error in POST /api/rsvps:', error);
     return NextResponse.json({ error: 'Internal Server Error' }, { status: 500 });

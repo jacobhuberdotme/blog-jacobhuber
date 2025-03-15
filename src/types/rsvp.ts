@@ -1,15 +1,19 @@
+export interface Guest {
+  id?: number;
+  name: string;
+  attending: boolean;
+}
+
 export interface RSVP {
   id: number;
-  name: string;
   email: string;
-  attending: string;
-  preferredTime: string;
+  guests: Guest[];
   message: string;
   created_at: string;
 }
 
 export interface RSVPFormProps {
-  editingRSVP: RSVP | null;
-  onSubmit: (name: string, attending: string, preferredTime: string) => void;
-  onCancel: () => void;
+  existingRSVP: RSVP | null;
+  onSubmit: (guests: { name: string; attending: boolean }[], message: string) => void;
+  onDelete?: () => void;
 }

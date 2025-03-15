@@ -1,64 +1,63 @@
-import { db } from '@/app/db';
-import { RSVPs } from '@/app/db/schema';
-import { eq, and } from 'drizzle-orm';
 import { NextRequest, NextResponse } from 'next/server';
+import { Pool } from 'pg';
+
+const pool = new Pool({
+  connectionString: process.env.DATABASE_URL,
+});
+
+const sql = {
+  query: (text: string, params?: (string | number | boolean | null)[]) => pool.query(text, params),
+};
 
 export async function PATCH(req: NextRequest, { params }: { params: { id: string } }) {
   try {
-    const id = parseInt(params.id, 10);
-    const { name, email, attending, preferredTime, message } = await req.json();
+    const { id } = params;
+    const body = await req.json();
+    const { guests, message } = body;
 
-    if (!id || !email) {
-      return NextResponse.json({ error: 'Invalid RSVP ID or email.' }, { status: 400 });
+    if (!Array.isArray(guests)) {
+      return NextResponse.json({ error: 'Invalid guest data' }, { status: 400 });
     }
 
-    // Check ownership
-    const existingRSVP = await db
-      .select()
-      .from(RSVPs)
-      .where(and(eq(RSVPs.id, id), eq(RSVPs.email, email)))
-      .limit(1);
+    await sql.query('UPDATE rsvps SET message = $1 WHERE id = $2;', [message || null, id]);
+    await sql.query('DELETE FROM guests WHERE rsvp_id = $1;', [id]);
 
-    if (existingRSVP.length === 0) {
-      return NextResponse.json({ error: 'Unauthorized or RSVP not found.' }, { status: 403 });
+    for (const guest of guests) {
+      if (!guest.name) continue;
+      await sql.query('INSERT INTO guests (rsvp_id, name, attending) VALUES ($1, $2, $3);', [id, guest.name, guest.attending]);
     }
 
-    await db
-      .update(RSVPs)
-      .set({ name, attending, preferredTime, message })
-      .where(eq(RSVPs.id, id));
-
-    return NextResponse.json({ message: 'RSVP updated successfully.' });
+    return NextResponse.json({ success: true });
   } catch (error) {
-    console.error('Error in PATCH /api/rsvps:', error);
-    return NextResponse.json({ error: 'Internal Server Error' }, { status: 500 });
+    console.error('[PATCH /api/rsvps/:id]', error);
+    return NextResponse.json({ error: 'Server error' }, { status: 500 });
   }
 }
 
-export async function DELETE(req: NextRequest, { params }: { params: { id: string } }) {
+export async function DELETE(_: NextRequest, { params }: { params: { id: string } }) {
   try {
-    const id = parseInt(params.id, 10);
-    const email = req.headers.get('email'); // Or pass email in the request body
-
-    if (!id || !email) {
-      return NextResponse.json({ error: 'Invalid RSVP ID or email.' }, { status: 400 });
-    }
-
-    // Check ownership
-    const existingRSVP = await db
-      .select()
-      .from(RSVPs)
-      .where(and(eq(RSVPs.id, id), eq(RSVPs.email, email)))
-      .limit(1);
-
-    if (existingRSVP.length === 0) {
-      return NextResponse.json({ error: 'Unauthorized or RSVP not found.' }, { status: 403 });
-    }
-
-    await db.delete(RSVPs).where(eq(RSVPs.id, id));
-    return NextResponse.json({ message: 'RSVP deleted successfully.' });
+    const { id } = params;
+    await sql.query('DELETE FROM rsvps WHERE id = $1;', [id]);
+    return NextResponse.json({ success: true });
   } catch (error) {
-    console.error('Error in DELETE /api/rsvps:', error);
-    return NextResponse.json({ error: 'Internal Server Error' }, { status: 500 });
+    console.error('[DELETE /api/rsvps/:id]', error);
+    return NextResponse.json({ error: 'Server error' }, { status: 500 });
+  }
+}
+
+export async function GET() {
+  try {
+    const { rows } = await sql.query(
+      `SELECT r.id, r.email, r.message, r.created_at,
+              json_agg(json_build_object('name', g.name, 'attending', g.attending)) AS guests
+       FROM rsvps r
+       LEFT JOIN guests g ON g.rsvp_id = r.id
+       GROUP BY r.id
+       ORDER BY r.created_at DESC;`
+    );
+    return NextResponse.json(rows);
+  } catch (error) {
+    console.error('[GET /api/rsvps]', error);
+    return NextResponse.json({ error: 'Server error' }, { status: 500 });
   }
 }

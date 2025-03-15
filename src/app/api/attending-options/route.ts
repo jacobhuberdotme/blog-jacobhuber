@@ -1,5 +1,5 @@
-import { db } from '@/app/db';
-import { attendingOptions } from '@/app/db/schema';
+import { db } from '@/db';
+import { attendingOptions } from '@/db/schema';
 import { sql } from 'drizzle-orm';
 import { NextResponse } from 'next/server';
 

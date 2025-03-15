@@ -1,5 +1,5 @@
-import { db } from "@/app/db";
-import { TimeSlots } from "@/app/db/schema"; 
+import { db } from "@/db";
+import { TimeSlots } from "@/db/schema"; 
 import { NextResponse } from "next/server";
 import { sql } from "drizzle-orm";
 

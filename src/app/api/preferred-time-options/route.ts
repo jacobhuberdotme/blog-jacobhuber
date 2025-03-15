@@ -1,5 +1,5 @@
-import { db } from '@/app/db';
-import { preferredTimeOptions } from '@/app/db/schema'; 
+import { db } from '@/db';
+import { preferredTimeOptions } from '@/db/schema'; 
 import { NextResponse } from 'next/server';
 
 export async function GET() {

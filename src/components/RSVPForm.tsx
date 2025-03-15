@@ -1,96 +1,62 @@
 'use client';
 
-import { useEffect, useState } from "react";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { RSVP } from "@/types/rsvp";
+import { toast } from "sonner";
 
 interface RSVPFormProps {
   existingRSVP: RSVP | null;
-  onSubmit: (name: string, attending: string, preferredTime: string | null, message: string) => void;
-  onDelete: () => void;
+  onSubmit: (guests: { id?: number; name: string; attending: boolean }[], message: string) => void;
 }
 
-interface Option {
-  id: number;
-  value: string;
-}
-
-export default function RSVPForm({ existingRSVP, onSubmit, onDelete }: RSVPFormProps) {
-  const [attendingOptions, setAttendingOptions] = useState<Option[]>([]);
-  const [preferredTimeOptions, setPreferredTimeOptions] = useState<Option[]>([]);
-  const [selectedAttending, setSelectedAttending] = useState<string | null>(
-    existingRSVP?.attending || null
+export default function RSVPForm({ existingRSVP, onSubmit }: RSVPFormProps) {
+  const [guests, setGuests] = useState<{ id?: number; name: string; attending: boolean }[]>(
+    existingRSVP?.guests || [{ name: "", attending: true }]
   );
-  const [selectedPreferredTime, setSelectedPreferredTime] = useState<string | null>(
-    existingRSVP?.preferredTime || null
-  );
-  const [isDoingVR, setIsDoingVR] = useState<boolean>(!!existingRSVP?.preferredTime);
+  const [message, setMessage] = useState(existingRSVP?.message || "");
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  useEffect(() => {
-    async function fetchOptions() {
-      try {
-        const [attendingRes, preferredTimeRes] = await Promise.all([
-          fetch("/api/attending-options"),
-          fetch("/api/preferred-time-options"),
-        ]);
+  const handleGuestChange = (index: number, key: "name" | "attending", value: string | boolean) => {
+    const updatedGuests = [...guests];
+    updatedGuests[index] = {
+      ...updatedGuests[index],
+      [key]: value,
+    };
+    setGuests(updatedGuests);
+  };
 
-        if (!attendingRes.ok || !preferredTimeRes.ok) {
-          throw new Error("Failed to fetch options");
-        }
+  const addGuest = () => {
+    setGuests([...guests, { name: "", attending: true }]);
+  };
 
-        const [attendingData, preferredTimeData] = await Promise.all([
-          attendingRes.json(),
-          preferredTimeRes.json(),
-        ]);
-
-        setAttendingOptions(
-          attendingData.map((opt: { id: number; option: string }) => ({
-            id: opt.id,
-            value: opt.option,
-          }))
-        );
-        setPreferredTimeOptions(
-          preferredTimeData.map((opt: { id: number; time: string }) => ({
-            id: opt.id,
-            value: opt.time,
-          }))
-        );
-      } catch (error) {
-        console.error("Error fetching options:", error);
-      }
-    }
-
-    fetchOptions();
-  }, []);
-
-  useEffect(() => {
-    if (existingRSVP) {
-      setSelectedAttending(existingRSVP.attending || null);
-      setSelectedPreferredTime(existingRSVP.preferredTime || null);
-      setIsDoingVR(!!existingRSVP.preferredTime);
-    }
-  }, [existingRSVP]);
-
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const form = e.target as HTMLFormElement;
-    const formData = new FormData(form);
-    const name = formData.get("name") as string;
-    const message = formData.get("message") as string;
+    setIsSubmitting(true);
 
-    onSubmit(
-      name,
-      selectedAttending || "",
-      isDoingVR ? selectedPreferredTime : null,
-      message || ""
-    );
+    try {
+      if (existingRSVP) {
+        await fetch(`/api/rsvps/${existingRSVP.id}`, {
+          method: 'PATCH',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ guests, message }),
+        });
+        toast.success("RSVP saved!", {
+          description: "Your changes have been saved successfully.",
+        });
+      } else {
+        onSubmit(guests, message);
+        toast.success("RSVP saved!", {
+          description: "Your changes have been saved successfully.",
+        });
+      }
+    } catch (err) {
+      console.error('Failed to submit RSVP:', err);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -99,70 +65,75 @@ export default function RSVPForm({ existingRSVP, onSubmit, onDelete }: RSVPFormP
         {existingRSVP ? "Edit RSVP" : "Add RSVP"}
       </h2>
       <form onSubmit={handleSubmit}>
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-          <input
-            name="name"
-            placeholder="Name(s)"
-            defaultValue={existingRSVP?.name || ""}
-            className="border p-2 rounded"
-            required
+        <div className="space-y-4">
+          {guests.map((guest, index) => (
+            <div key={index} className="flex flex-col sm:flex-row gap-4 items-center">
+              <input
+                type="text"
+                value={guest.name}
+                onChange={(e) => handleGuestChange(index, "name", e.target.value)}
+                placeholder="Guest name"
+                className="border p-2 rounded w-full"
+                required
+                disabled={isSubmitting}
+              />
+              <select
+                value={guest.attending ? "yes" : "no"}
+                onChange={(e) => handleGuestChange(index, "attending", e.target.value === "yes")}
+                className="border p-2 rounded w-full sm:w-auto"
+                disabled={isSubmitting}
+              >
+                <option value="yes">Attending</option>
+                <option value="no">Not Attending</option>
+              </select>
+              {existingRSVP?.id && (
+                <Button
+                  type="button"
+                  onClick={async () => {
+                    const removedGuest = guests[index];
+                    const updatedGuests = guests.filter((_, i) => i !== index);
+                    setGuests(updatedGuests);
+
+                    if (removedGuest.id) {
+                      await fetch(`/api/guests/${removedGuest.id}`, {
+                        method: 'DELETE',
+                      });
+                    }
+                  }}
+                  className="bg-[#d9b7c6] hover:bg-[#cba9b7] text-white text-sm px-4 py-2 rounded-md"
+                  disabled={isSubmitting}
+                >
+                  Remove
+                </Button>
+              )}
+            </div>
+          ))}
+          <Button type="button" onClick={addGuest} className="bg-[#b7cfdc] hover:bg-[#a9c0d1] text-sm" disabled={isSubmitting}>
+            + Add another guest
+          </Button>
+          <textarea
+            placeholder="Optional message"
+            value={message}
+            onChange={(e) => setMessage(e.target.value)}
+            className="border p-2 rounded w-full"
+            disabled={isSubmitting}
           />
-          <Select
-            value={selectedAttending || undefined}
-            onValueChange={(value) => setSelectedAttending(value || null)}
-          >
-            <SelectTrigger>
-              <SelectValue placeholder="Attending (Yes/No/Maybe)" />
-            </SelectTrigger>
-            <SelectContent>
-              {attendingOptions.map((option) => (
-                <SelectItem key={option.id} value={option.value}>
-                  {option.value}
-                </SelectItem>
-              ))}
-            </SelectContent>
-          </Select>
-          <div className="flex items-center">
-            <input
-              type="checkbox"
-              id="vr-participation"
-              checked={isDoingVR}
-              onChange={(e) => setIsDoingVR(e.target.checked)}
-              className="mr-2"
-            />
-            <label htmlFor="vr-participation">Participating in VR?</label>
-          </div>
-          {isDoingVR && (
-            <Select
-              value={selectedPreferredTime || undefined}
-              onValueChange={(value) => setSelectedPreferredTime(value || null)}
+          <div className="flex flex-col sm:flex-row gap-4 mt-4 w-full">
+            <Button
+              type="submit"
+              className="w-full sm:w-1/2 h-14 bg-[#b7cfdc] hover:bg-[#a9c0d1] text-white font-semibold px-6 rounded-md"
+              disabled={isSubmitting}
             >
-              <SelectTrigger>
-                <SelectValue placeholder="Preferred Time" />
-              </SelectTrigger>
-              <SelectContent>
-                {preferredTimeOptions.map((option) => (
-                  <SelectItem key={option.id} value={option.value}>
-                    {option.value}
-                  </SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
-          )}
-          <input
-            name="message"
-            placeholder="Message"
-            defaultValue={existingRSVP?.message || ""}
-            className="border p-2 rounded"
-          />
-        </div>
-        <div className="flex gap-4 mt-4">
-          <Button type="submit">{existingRSVP ? "Save Changes" : "Add RSVP"}</Button>
-          {existingRSVP && (
-            <Button type="button" variant="destructive" onClick={onDelete}>
-              Delete RSVP
+              {isSubmitting ? "Saving..." : existingRSVP ? "Save Changes" : "Submit RSVP"}
             </Button>
-          )}
+            <a
+              href="/baby-shower.ics"
+              download
+              className={`w-full sm:w-1/2 h-14 ${isSubmitting ? 'opacity-50 pointer-events-none' : ''} bg-[#d9b7c6] hover:bg-[#cba9b7] text-white font-semibold px-6 rounded-md text-center flex items-center justify-center`}
+            >
+              Add to Calendar
+            </a>
+          </div>
         </div>
       </form>
     </div>
