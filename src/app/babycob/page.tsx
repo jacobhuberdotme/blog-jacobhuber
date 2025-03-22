@@ -5,7 +5,7 @@ import { useUser, useClerk } from '@clerk/nextjs';
 import { RSVP } from '@/types/rsvp';
 import RSVPForm from '@/components/RSVPForm';
 import RSVPTable from "@/components/RSVPTable";
-import { Card, CardHeader, CardContent } from '@/components/ui/card';
+import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/collapsible';
 import useRSVPs from '@/hooks/useRSVPs';
@@ -88,7 +88,7 @@ export default function BabyShowerPage() {
     <p>
       <strong>Registry:</strong>{' '}
       <a
-        href="https://babylist.com/find"
+        href="https://my.babylist.com/ellen-huber"
         target="_blank"
         rel="noopener noreferrer"
         className="text-blue-500 underline"
@@ -114,9 +114,9 @@ export default function BabyShowerPage() {
         <CollapsibleContent>
           {isSignedIn ? (
             <>
-              <h2 className="text-xl font-semibold mt-4 text-center">
+              {/* <h2 className="text-xl font-semibold mt-4 text-center">
                 {userRSVP ? 'Edit Your RSVP' : 'Add Your RSVP'}
-              </h2>
+              </h2> */}
               {message && <p className="text-red-500 text-center">{message}</p>}
               <RSVPForm
                 existingRSVP={userRSVP}
@@ -133,21 +133,7 @@ export default function BabyShowerPage() {
         </CollapsibleContent>
       </Collapsible>
 
-      <Card>
-        <CardHeader>
-          <div className="relative w-full h-64 rounded-xl overflow-hidden">
-            <Image
-              src="/diaper-raffle.png"
-              alt="Diaper Raffle"
-              fill
-              className="object-cover"
-              sizes="100vw"
-            />
-          </div>
-        </CardHeader>
-      </Card>
-
-      {email === 'jacob-huber@outlook.com' && (
+      {['ellenatwood1719@gmail.com', 'hello@jacobhuber.me'].includes(email || '') && (
         <div className="text-center">
           <Button
             onClick={() => setIsRSVPListOpen(!isRSVPListOpen)}

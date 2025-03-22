@@ -4,6 +4,8 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { RSVP } from "@/types/rsvp";
 import { toast } from "sonner";
+import { Card, CardHeader } from "./ui/card";
+import Image from 'next/image';
 
 interface RSVPFormProps {
   existingRSVP: RSVP | null;
@@ -67,45 +69,47 @@ export default function RSVPForm({ existingRSVP, onSubmit }: RSVPFormProps) {
       <form onSubmit={handleSubmit}>
         <div className="space-y-4">
           {guests.map((guest, index) => (
-            <div key={index} className="flex flex-col sm:flex-row gap-4 items-center">
+            <div key={index} className="flex flex-col gap-2 sm:flex-row sm:items-center sm:gap-4 w-full">
               <input
                 type="text"
                 value={guest.name}
                 onChange={(e) => handleGuestChange(index, "name", e.target.value)}
                 placeholder="Guest name"
-                className="border p-2 rounded w-full"
+                className="border p-2 rounded sm:flex-1 w-full"
                 required
                 disabled={isSubmitting}
               />
-              <select
-                value={guest.attending ? "yes" : "no"}
-                onChange={(e) => handleGuestChange(index, "attending", e.target.value === "yes")}
-                className="border p-2 rounded w-full sm:w-auto"
-                disabled={isSubmitting}
-              >
-                <option value="yes">Attending</option>
-                <option value="no">Not Attending</option>
-              </select>
-              {existingRSVP?.id && (
-                <Button
-                  type="button"
-                  onClick={async () => {
-                    const removedGuest = guests[index];
-                    const updatedGuests = guests.filter((_, i) => i !== index);
-                    setGuests(updatedGuests);
-
-                    if (removedGuest.id) {
-                      await fetch(`/api/guests/${removedGuest.id}`, {
-                        method: 'DELETE',
-                      });
-                    }
-                  }}
-                  className="bg-[#d9b7c6] hover:bg-[#cba9b7] text-white text-sm px-4 py-2 rounded-md"
+              <div className="flex flex-row gap-2 sm:gap-4 sm:flex-1 w-full">
+                <select
+                  value={guest.attending ? "yes" : "no"}
+                  onChange={(e) => handleGuestChange(index, "attending", e.target.value === "yes")}
+                  className="border p-2 rounded w-full"
                   disabled={isSubmitting}
                 >
-                  Remove
-                </Button>
-              )}
+                  <option value="yes">Attending</option>
+                  <option value="no">Not Attending</option>
+                </select>
+                {existingRSVP?.id && (
+                  <Button
+                    type="button"
+                    onClick={async () => {
+                      const removedGuest = guests[index];
+                      const updatedGuests = guests.filter((_, i) => i !== index);
+                      setGuests(updatedGuests);
+
+                      if (removedGuest.id) {
+                        await fetch(`/api/guests/${removedGuest.id}`, {
+                          method: 'DELETE',
+                        });
+                      }
+                    }}
+                    className="bg-[#d9b7c6] hover:bg-[#cba9b7] text-white text-sm px-4 py-2 rounded-md whitespace-nowrap sm:whitespace-nowrap sm:flex-shrink-0"
+                    disabled={isSubmitting}
+                  >
+                    Remove
+                  </Button>
+                )}
+              </div>
             </div>
           ))}
           <Button type="button" onClick={addGuest} className="bg-[#b7cfdc] hover:bg-[#a9c0d1] text-sm" disabled={isSubmitting}>
@@ -118,6 +122,19 @@ export default function RSVPForm({ existingRSVP, onSubmit }: RSVPFormProps) {
             className="border p-2 rounded w-full"
             disabled={isSubmitting}
           />
+          <Card>
+                  <CardHeader>
+                    <div className="relative w-full h-64 rounded-xl overflow-hidden">
+                      <Image
+                        src="/diaper-raffle.png"
+                        alt="Diaper Raffle"
+                        fill
+                        className="object-cover"
+                        sizes="100vw"
+                      />
+                    </div>
+                  </CardHeader>
+                </Card>
           <div className="flex flex-col sm:flex-row gap-4 mt-4 w-full">
             <Button
               type="submit"
