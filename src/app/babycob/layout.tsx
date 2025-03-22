@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "Jacob Huber", url: "https://www.jacobhuber.me" }],
   openGraph: {
-    title: "Baby Huber Shower | Join Us to Celebrate",
+    title: "Baby Shower | Join Us to Celebrate",
     description:
       "A baby boy is in bloom! Join us at our home in St. Louis for an open house baby shower celebrating Baby Huber. Food, fun, and joy await. RSVP today!",
     url: "https://www.jacobhuber.me/babycob",
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: "Baby Huber Shower | Join Us to Celebrate",
+    title: "Baby Shower | Join Us to Celebrate",
     description:
       "A baby boy is in bloom! Join us for an open house baby shower in St. Louis celebrating Baby Huber. RSVP online.",
     images: [
