@@ -133,7 +133,7 @@ export default function BabyShowerPage() {
         </CollapsibleContent>
       </Collapsible>
 
-      {['ellenatwood1719@gmail.com', 'hello@jacobhuber.me'].includes(email || '') && (
+      {['ellenatwood1791@gmail.com', 'hello@jacobhuber.me'].includes(email || '') && (
         <div className="text-center">
           <Button
             onClick={() => setIsRSVPListOpen(!isRSVPListOpen)}
